@@ -1,0 +1,3491 @@
+{
+  "scope": "QQQ ETF option quote reconstruction; not NDX and not a forecasting backtest",
+  "source_repository": "anahatsingh-ui/options-dataset-hist",
+  "source_revision": "37f6c456fe1a4775c875673fb8ef907d5cd2fd66",
+  "source_files": [
+    {
+      "file": "underlying_prices.parquet",
+      "bytes": 332454,
+      "git_blob_sha1": "f3a892bc4c88c692900b5c0071322c6db408996a",
+      "sha256": "78c015fd7fa9d493cd798d5ae81b3c2ae6dc3b8176e25e7bb90cd4114b103351"
+    },
+    {
+      "file": "options_2011.parquet",
+      "bytes": 7271151,
+      "git_blob_sha1": "6d73b23d9e58cce54e2a6b3a855ad38cc2af37c1",
+      "sha256": "29bbc96a190ea884002128ad41af727e7b570b1157be2f36094e4e12685d8f87"
+    },
+    {
+      "file": "options_2012.parquet",
+      "bytes": 10197428,
+      "git_blob_sha1": "5c120074bda89db62022212f59c65daa81f232d2",
+      "sha256": "e92029990b42769707a2254a99b391b3c10a804e3dbdbde2113336c6a862bec8"
+    },
+    {
+      "file": "options_2013.parquet",
+      "bytes": 12257488,
+      "git_blob_sha1": "4df0007d3f5e152514a8da00889cf65583c73044",
+      "sha256": "1e992c9430243c46eb7b37c3298876bfe77ed0bb3af634a0d380c7cfd825de08"
+    },
+    {
+      "file": "options_2014.parquet",
+      "bytes": 18615540,
+      "git_blob_sha1": "074840f5bc5938226860eae54c87cb521be7e52b",
+      "sha256": "1d576b3db1d60a840e695f668bd899e794c92022a4380b755890d95a05865386"
+    },
+    {
+      "file": "options_2015.parquet",
+      "bytes": 17841650,
+      "git_blob_sha1": "042c9c371ed85486824e9f0d686110306f514063",
+      "sha256": "aeb3bd86398d82b4ba7d15de43a8c318e6c3ac2f1be5477c29b9f4ff6f6fb3d4"
+    },
+    {
+      "file": "options_2016.parquet",
+      "bytes": 17307631,
+      "git_blob_sha1": "b695a8a8d04809fa650f746c825609a855643349",
+      "sha256": "9cea3d025d2e8f96832f44448571296abe7b26ec45d8b2847d5bd6b54aaba557"
+    }
+  ],
+  "versions": {
+    "python": "3.12.15",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1"
+  },
+  "years": [
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016
+  ],
+  "annual_audit": [
+    {
+      "year": 2011,
+      "rows": 201100,
+      "dates": 197,
+      "first_date": "2011-03-23",
+      "last_date": "2011-12-30",
+      "invalid_or_nonpositive_iv": 0,
+      "option_types": [
+        "call",
+        "put"
+      ]
+    },
+    {
+      "year": 2012,
+      "rows": 296244,
+      "dates": 250,
+      "first_date": "2012-01-03",
+      "last_date": "2012-12-31",
+      "invalid_or_nonpositive_iv": 17,
+      "option_types": [
+        "call",
+        "put"
+      ]
+    },
+    {
+      "year": 2013,
+      "rows": 369383,
+      "dates": 252,
+      "first_date": "2013-01-02",
+      "last_date": "2013-12-31",
+      "invalid_or_nonpositive_iv": 0,
+      "option_types": [
+        "call",
+        "put"
+      ]
+    },
+    {
+      "year": 2014,
+      "rows": 549664,
+      "dates": 252,
+      "first_date": "2014-01-02",
+      "last_date": "2014-12-31",
+      "invalid_or_nonpositive_iv": 0,
+      "option_types": [
+        "call",
+        "put"
+      ]
+    },
+    {
+      "year": 2015,
+      "rows": 516063,
+      "dates": 251,
+      "first_date": "2015-01-02",
+      "last_date": "2015-12-31",
+      "invalid_or_nonpositive_iv": 0,
+      "option_types": [
+        "call",
+        "put"
+      ]
+    },
+    {
+      "year": 2016,
+      "rows": 502946,
+      "dates": 251,
+      "first_date": "2016-01-04",
+      "last_date": "2016-12-30",
+      "invalid_or_nonpositive_iv": 0,
+      "option_types": [
+        "call",
+        "put"
+      ]
+    }
+  ],
+  "snapshots": 70,
+  "skipped_snapshots": [],
+  "skipped_reasons": {},
+  "held_out_quotes": 1903,
+  "pooled": {
+    "spline": {
+      "queries": 1903,
+      "finite": 1903,
+      "nonpositive": 1,
+      "rmse_iv": 0.011553039667574977,
+      "mae_iv": 0.004666005965434368,
+      "log_pairs": 1902,
+      "rmse_log_iv": 0.07896774849594115
+    },
+    "linear": {
+      "queries": 1903,
+      "finite": 1903,
+      "nonpositive": 0,
+      "rmse_iv": 0.007895249728059911,
+      "mae_iv": 0.0032562686628536284,
+      "log_pairs": 1903,
+      "rmse_log_iv": 0.06569231631903835
+    },
+    "nadaraya_watson": {
+      "queries": 1903,
+      "finite": 1903,
+      "nonpositive": 0,
+      "rmse_iv": 0.008438059600365951,
+      "mae_iv": 0.004100738228806916,
+      "log_pairs": 1903,
+      "rmse_log_iv": 0.07450839950120083
+    }
+  },
+  "engines": {
+    "Octave": {
+      "status": "RUN",
+      "version": "8.4.0",
+      "passed": true,
+      "cases": 210,
+      "max_abs": 1.061650767297806e-15
+    },
+    "R": {
+      "status": "RUN",
+      "version": "R version 4.3.3 (2024-02-29)",
+      "passed": true,
+      "cases": 210,
+      "max_abs": 2.3314683517128287e-15
+    }
+  },
+  "absolute_tolerance": 2e-11,
+  "relative_tolerance": 2e-10,
+  "fixture_id": "43df5574a12da4483068695ed5b49c79ec673aa52252566b3fb0cb280a7a449c",
+  "daily": [
+    {
+      "date": "2011-03-23",
+      "raw_quotes": 940,
+      "usable_quotes": 205,
+      "full_grid": [
+        18,
+        6
+      ],
+      "training_grid": [
+        17,
+        5
+      ],
+      "held_out": 23,
+      "bandwidth": [
+        0.017950098725542984,
+        0.05616438356164381
+      ],
+      "methods": {
+        "spline": {
+          "queries": 23,
+          "finite": 23,
+          "nonpositive": 0,
+          "rmse_iv": 0.00589705309023238,
+          "mae_iv": 0.004705693297707793,
+          "log_pairs": 23,
+          "rmse_log_iv": 0.027208932559805804
+        },
+        "linear": {
+          "queries": 23,
+          "finite": 23,
+          "nonpositive": 0,
+          "rmse_iv": 0.0043127569415434,
+          "mae_iv": 0.0030130159603742397,
+          "log_pairs": 23,
+          "rmse_log_iv": 0.01931464864790082
+        },
+        "nadaraya_watson": {
+          "queries": 23,
+          "finite": 23,
+          "nonpositive": 0,
+          "rmse_iv": 0.004683121368350076,
+          "mae_iv": 0.0036701422158762283,
+          "log_pairs": 23,
+          "rmse_log_iv": 0.02160977949454744
+        }
+      }
+    },
+    {
+      "date": "2011-04-01",
+      "raw_quotes": 1010,
+      "usable_quotes": 214,
+      "full_grid": [
+        19,
+        6
+      ],
+      "training_grid": [
+        18,
+        5
+      ],
+      "held_out": 24,
+      "bandwidth": [
+        0.017403411068569463,
+        0.056164383561643855
+      ],
+      "methods": {
+        "spline": {
+          "queries": 24,
+          "finite": 24,
+          "nonpositive": 0,
+          "rmse_iv": 0.008106091736638182,
+          "mae_iv": 0.006484643283713409,
+          "log_pairs": 24,
+          "rmse_log_iv": 0.038764044888977486
+        },
+        "linear": {
+          "queries": 24,
+          "finite": 24,
+          "nonpositive": 0,
+          "rmse_iv": 0.004810090481383789,
+          "mae_iv": 0.003826381856540081,
+          "log_pairs": 24,
+          "rmse_log_iv": 0.022768747595543957
+        },
+        "nadaraya_watson": {
+          "queries": 24,
+          "finite": 24,
+          "nonpositive": 0,
+          "rmse_iv": 0.004813626598364151,
+          "mae_iv": 0.0038812922357180277,
+          "log_pairs": 24,
+          "rmse_log_iv": 0.02404170957540743
+        }
+      }
+    },
+    {
+      "date": "2011-05-02",
+      "raw_quotes": 1018,
+      "usable_quotes": 209,
+      "full_grid": [
+        17,
+        7
+      ],
+      "training_grid": [
+        16,
+        6
+      ],
+      "held_out": 23,
+      "bandwidth": [
+        0.01695777513990171,
+        0.04383561643835615
+      ],
+      "methods": {
+        "spline": {
+          "queries": 23,
+          "finite": 23,
+          "nonpositive": 0,
+          "rmse_iv": 0.005338280651747816,
+          "mae_iv": 0.003830106301412629,
+          "log_pairs": 23,
+          "rmse_log_iv": 0.02736296829033903
+        },
+        "linear": {
+          "queries": 23,
+          "finite": 23,
+          "nonpositive": 0,
+          "rmse_iv": 0.004173700676251676,
+          "mae_iv": 0.003298671497584543,
+          "log_pairs": 23,
+          "rmse_log_iv": 0.02150233295213457
+        },
+        "nadaraya_watson": {
+          "queries": 23,
+          "finite": 23,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036098327232192444,
+          "mae_iv": 0.002992330598952784,
+          "log_pairs": 23,
+          "rmse_log_iv": 0.018475389046977545
+        }
+      }
+    },
+    {
+      "date": "2011-06-01",
+      "raw_quotes": 1012,
+      "usable_quotes": 211,
+      "full_grid": [
+        15,
+        7
+      ],
+      "training_grid": [
+        14,
+        6
+      ],
+      "held_out": 21,
+      "bandwidth": [
+        0.01751620248730079,
+        0.0958904109589041
+      ],
+      "methods": {
+        "spline": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.006281217069059139,
+          "mae_iv": 0.004557786127010605,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.029105444484324
+        },
+        "linear": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035107523000454527,
+          "mae_iv": 0.002606486643437866,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.017967764148540233
+        },
+        "nadaraya_watson": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.005513041496387443,
+          "mae_iv": 0.0041080793687947445,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.026607444071936083
+        }
+      }
+    },
+    {
+      "date": "2011-07-01",
+      "raw_quotes": 1046,
+      "usable_quotes": 220,
+      "full_grid": [
+        11,
+        9
+      ],
+      "training_grid": [
+        10,
+        8
+      ],
+      "held_out": 19,
+      "bandwidth": [
+        0.0172681747539285,
+        0.060273972602739756
+      ],
+      "methods": {
+        "spline": {
+          "queries": 19,
+          "finite": 19,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036945843188071563,
+          "mae_iv": 0.0024036232339310175,
+          "log_pairs": 19,
+          "rmse_log_iv": 0.018123689859847338
+        },
+        "linear": {
+          "queries": 19,
+          "finite": 19,
+          "nonpositive": 0,
+          "rmse_iv": 0.0028277403829069267,
+          "mae_iv": 0.0017203165522501895,
+          "log_pairs": 19,
+          "rmse_log_iv": 0.014170011795568678
+        },
+        "nadaraya_watson": {
+          "queries": 19,
+          "finite": 19,
+          "nonpositive": 0,
+          "rmse_iv": 0.003148328021364694,
+          "mae_iv": 0.002399400347377389,
+          "log_pairs": 19,
+          "rmse_log_iv": 0.01568423570257233
+        }
+      }
+    },
+    {
+      "date": "2011-08-01",
+      "raw_quotes": 1028,
+      "usable_quotes": 234,
+      "full_grid": [
+        12,
+        9
+      ],
+      "training_grid": [
+        11,
+        8
+      ],
+      "held_out": 20,
+      "bandwidth": [
+        0.017322016282695307,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 20,
+          "finite": 20,
+          "nonpositive": 0,
+          "rmse_iv": 0.005875260669133071,
+          "mae_iv": 0.004773185746014638,
+          "log_pairs": 20,
+          "rmse_log_iv": 0.027714941390312043
+        },
+        "linear": {
+          "queries": 20,
+          "finite": 20,
+          "nonpositive": 0,
+          "rmse_iv": 0.004976711009828198,
+          "mae_iv": 0.003764358974358979,
+          "log_pairs": 20,
+          "rmse_log_iv": 0.023817488850835133
+        },
+        "nadaraya_watson": {
+          "queries": 20,
+          "finite": 20,
+          "nonpositive": 0,
+          "rmse_iv": 0.004835188822853786,
+          "mae_iv": 0.004162517453966089,
+          "log_pairs": 20,
+          "rmse_log_iv": 0.023493775797023584
+        }
+      }
+    },
+    {
+      "date": "2011-09-01",
+      "raw_quotes": 1074,
+      "usable_quotes": 239,
+      "full_grid": [
+        13,
+        9
+      ],
+      "training_grid": [
+        12,
+        8
+      ],
+      "held_out": 21,
+      "bandwidth": [
+        0.01832844574780057,
+        0.060273972602739756
+      ],
+      "methods": {
+        "spline": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.004813055019732767,
+          "mae_iv": 0.003761634324419292,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.018156155510800246
+        },
+        "linear": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035494798582798473,
+          "mae_iv": 0.0019584013605442254,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.01337482094170487
+        },
+        "nadaraya_watson": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.0034508491876895234,
+          "mae_iv": 0.002506745943431681,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.013126613322539836
+        }
+      }
+    },
+    {
+      "date": "2011-10-03",
+      "raw_quotes": 1018,
+      "usable_quotes": 221,
+      "full_grid": [
+        20,
+        9
+      ],
+      "training_grid": [
+        19,
+        8
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.019554165037152904,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0046504270686379716,
+          "mae_iv": 0.0035593652106858465,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.012311859917417785
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036130305947780815,
+          "mae_iv": 0.0030886568322981344,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.009643778864111628
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.00492966235508187,
+          "mae_iv": 0.003588560890653726,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.013212456284492424
+        }
+      }
+    },
+    {
+      "date": "2011-11-01",
+      "raw_quotes": 1024,
+      "usable_quotes": 219,
+      "full_grid": [
+        20,
+        8
+      ],
+      "training_grid": [
+        19,
+        7
+      ],
+      "held_out": 27,
+      "bandwidth": [
+        0.017717930545712246,
+        0.16301369863013698
+      ],
+      "methods": {
+        "spline": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.003538048353443948,
+          "mae_iv": 0.002577659064755308,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.012460349860570093
+        },
+        "linear": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.003179451138593882,
+          "mae_iv": 0.002426587301587296,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.010995786974477414
+        },
+        "nadaraya_watson": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.00494783166193094,
+          "mae_iv": 0.004045624375503331,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.016656584596343307
+        }
+      }
+    },
+    {
+      "date": "2011-12-01",
+      "raw_quotes": 1080,
+      "usable_quotes": 224,
+      "full_grid": [
+        20,
+        9
+      ],
+      "training_grid": [
+        19,
+        8
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.017611835153222954,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004327425552259471,
+          "mae_iv": 0.0034410709189334246,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.01623691458424371
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0031528185738974182,
+          "mae_iv": 0.00196665816326531,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.011680862992842128
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033065154021167846,
+          "mae_iv": 0.002837055807158935,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.012301751058317916
+        }
+      }
+    },
+    {
+      "date": "2012-01-03",
+      "raw_quotes": 1098,
+      "usable_quotes": 227,
+      "full_grid": [
+        19,
+        9
+      ],
+      "training_grid": [
+        18,
+        8
+      ],
+      "held_out": 27,
+      "bandwidth": [
+        0.017574692442882234,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.004104353583909894,
+          "mae_iv": 0.0029919513583725427,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.018235337119163753
+        },
+        "linear": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035512573166498976,
+          "mae_iv": 0.0025196269457863703,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.016145687688893195
+        },
+        "nadaraya_watson": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.0034087257973557804,
+          "mae_iv": 0.002716625032253283,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.015384015888632334
+        }
+      }
+    },
+    {
+      "date": "2012-02-01",
+      "raw_quotes": 1118,
+      "usable_quotes": 243,
+      "full_grid": [
+        17,
+        9
+      ],
+      "training_grid": [
+        16,
+        8
+      ],
+      "held_out": 25,
+      "bandwidth": [
+        0.016388069485414603,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.00461543551070721,
+          "mae_iv": 0.003451308860842265,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.02326587219030571
+        },
+        "linear": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.003786124385042379,
+          "mae_iv": 0.002731273170731714,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.019016680243597574
+        },
+        "nadaraya_watson": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.003247626565173299,
+          "mae_iv": 0.0027872915845839775,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.01563417013412908
+        }
+      }
+    },
+    {
+      "date": "2012-03-01",
+      "raw_quotes": 1104,
+      "usable_quotes": 221,
+      "full_grid": [
+        17,
+        9
+      ],
+      "training_grid": [
+        16,
+        8
+      ],
+      "held_out": 25,
+      "bandwidth": [
+        0.015403573629081957,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.0060950044024221115,
+          "mae_iv": 0.004893969396735166,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.028982558806835323
+        },
+        "linear": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.004564545691870975,
+          "mae_iv": 0.0033164530612244947,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.021604732411335155
+        },
+        "nadaraya_watson": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.004566259713286485,
+          "mae_iv": 0.0038499315689438708,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.022974660136334073
+        }
+      }
+    },
+    {
+      "date": "2012-04-02",
+      "raw_quotes": 1140,
+      "usable_quotes": 238,
+      "full_grid": [
+        18,
+        9
+      ],
+      "training_grid": [
+        17,
+        8
+      ],
+      "held_out": 26,
+      "bandwidth": [
+        0.014652014652014655,
+        0.0602739726027397
+      ],
+      "methods": {
+        "spline": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.003426977086374203,
+          "mae_iv": 0.0023577822616683585,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.01779897465191817
+        },
+        "linear": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.0025612571522196682,
+          "mae_iv": 0.0017380434782608668,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.01344577272334325
+        },
+        "nadaraya_watson": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.0030663963110124006,
+          "mae_iv": 0.0028604132434504282,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.01611567477811907
+        }
+      }
+    },
+    {
+      "date": "2012-05-01",
+      "raw_quotes": 1150,
+      "usable_quotes": 255,
+      "full_grid": [
+        19,
+        9
+      ],
+      "training_grid": [
+        18,
+        8
+      ],
+      "held_out": 27,
+      "bandwidth": [
+        0.01495438911320468,
+        0.06027397260273973
+      ],
+      "methods": {
+        "spline": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.006958357540854947,
+          "mae_iv": 0.004366106588900429,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.03243997285233444
+        },
+        "linear": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.006486760798377252,
+          "mae_iv": 0.003873848238482391,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.030091453769442538
+        },
+        "nadaraya_watson": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.003705877353286823,
+          "mae_iv": 0.002960679528603003,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.018448846276229475
+        }
+      }
+    },
+    {
+      "date": "2012-06-01",
+      "raw_quotes": 1208,
+      "usable_quotes": 253,
+      "full_grid": [
+        22,
+        9
+      ],
+      "training_grid": [
+        21,
+        8
+      ],
+      "held_out": 30,
+      "bandwidth": [
+        0.016553824761211144,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.004968691130643528,
+          "mae_iv": 0.0033056890413100744,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.020992249785337883
+        },
+        "linear": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.004304452789097085,
+          "mae_iv": 0.0026659326241134716,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.018308372411771714
+        },
+        "nadaraya_watson": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.004083256205943682,
+          "mae_iv": 0.003271393430044144,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.016228004564321948
+        }
+      }
+    },
+    {
+      "date": "2012-07-02",
+      "raw_quotes": 1208,
+      "usable_quotes": 256,
+      "full_grid": [
+        21,
+        9
+      ],
+      "training_grid": [
+        20,
+        8
+      ],
+      "held_out": 29,
+      "bandwidth": [
+        0.015540015540015606,
+        0.07671232876712325
+      ],
+      "methods": {
+        "spline": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.003521206054077723,
+          "mae_iv": 0.0024050994825123248,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.017321835847014286
+        },
+        "linear": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0025724541314901405,
+          "mae_iv": 0.0015498029556650285,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.01303311051195627
+        },
+        "nadaraya_watson": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.003258197048309804,
+          "mae_iv": 0.0027838425476945277,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.017016493625177466
+        }
+      }
+    },
+    {
+      "date": "2012-08-01",
+      "raw_quotes": 1196,
+      "usable_quotes": 260,
+      "full_grid": [
+        21,
+        9
+      ],
+      "training_grid": [
+        20,
+        8
+      ],
+      "held_out": 29,
+      "bandwidth": [
+        0.015477480266212651,
+        0.0602739726027397
+      ],
+      "methods": {
+        "spline": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0055047724307258706,
+          "mae_iv": 0.00363322536283712,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.02703240078234542
+        },
+        "linear": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.004919161036875221,
+          "mae_iv": 0.0033642084639498486,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.023976382104162208
+        },
+        "nadaraya_watson": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.003962776918575317,
+          "mae_iv": 0.003059658676012748,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.018901231002651283
+        }
+      }
+    },
+    {
+      "date": "2012-09-04",
+      "raw_quotes": 1188,
+      "usable_quotes": 260,
+      "full_grid": [
+        18,
+        9
+      ],
+      "training_grid": [
+        17,
+        8
+      ],
+      "held_out": 26,
+      "bandwidth": [
+        0.014686444411807886,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.005261534182389195,
+          "mae_iv": 0.003936310963434826,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.025589794467818422
+        },
+        "linear": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004720013394812932,
+          "mae_iv": 0.0032561950549450584,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.02298282922503874
+        },
+        "nadaraya_watson": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004205178169764923,
+          "mae_iv": 0.003541443805253432,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.020491425036041056
+        }
+      }
+    },
+    {
+      "date": "2012-10-01",
+      "raw_quotes": 1148,
+      "usable_quotes": 245,
+      "full_grid": [
+        19,
+        9
+      ],
+      "training_grid": [
+        18,
+        8
+      ],
+      "held_out": 27,
+      "bandwidth": [
+        0.014604936468526342,
+        0.0958904109589041
+      ],
+      "methods": {
+        "spline": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.0031786806927310875,
+          "mae_iv": 0.0023483837990792124,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.01612263858319878
+        },
+        "linear": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.0028355070731776026,
+          "mae_iv": 0.0022217755991285376,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.01460571046846976
+        },
+        "nadaraya_watson": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.004133262092194545,
+          "mae_iv": 0.003446120799299573,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.021187337419509247
+        }
+      }
+    },
+    {
+      "date": "2012-11-01",
+      "raw_quotes": 1212,
+      "usable_quotes": 238,
+      "full_grid": [
+        20,
+        9
+      ],
+      "training_grid": [
+        19,
+        8
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.015180749595053555,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004179578038487644,
+          "mae_iv": 0.0034140430337757537,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.022272358041867526
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.003845228337080349,
+          "mae_iv": 0.0031011071428571446,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.02038938562578768
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0038721246776026066,
+          "mae_iv": 0.0034041877451526548,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.02044813618109319
+        }
+      }
+    },
+    {
+      "date": "2012-12-03",
+      "raw_quotes": 1328,
+      "usable_quotes": 247,
+      "full_grid": [
+        21,
+        8
+      ],
+      "training_grid": [
+        20,
+        7
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.015227653418608211,
+        0.07671232876712329
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033842271856157425,
+          "mae_iv": 0.00227337277528088,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.019469914725724038
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0027793947023237,
+          "mae_iv": 0.001605640527950315,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.01577439016463816
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.003005116969357784,
+          "mae_iv": 0.0020649000210898774,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.017194741028272148
+        }
+      }
+    },
+    {
+      "date": "2013-01-02",
+      "raw_quotes": 1370,
+      "usable_quotes": 289,
+      "full_grid": [
+        21,
+        8
+      ],
+      "training_grid": [
+        20,
+        7
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.014880952380952328,
+        0.06986301369863016
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004353559798115317,
+          "mae_iv": 0.0030916765844271657,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.023908560818967202
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.00407578602201741,
+          "mae_iv": 0.002794658385093169,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.022338022289425417
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035338850559811868,
+          "mae_iv": 0.0028563117007891375,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.019287600642224637
+        }
+      }
+    },
+    {
+      "date": "2013-02-01",
+      "raw_quotes": 1466,
+      "usable_quotes": 310,
+      "full_grid": [
+        18,
+        9
+      ],
+      "training_grid": [
+        17,
+        8
+      ],
+      "held_out": 26,
+      "bandwidth": [
+        0.014779781259237401,
+        0.063013698630137
+      ],
+      "methods": {
+        "spline": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.003011862094447913,
+          "mae_iv": 0.0020261377734887486,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.019090668008504556
+        },
+        "linear": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.002393920840355203,
+          "mae_iv": 0.0012909005628517832,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.015360967545511842
+        },
+        "nadaraya_watson": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.003107789697626516,
+          "mae_iv": 0.002600713796542062,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.02035833495605184
+        }
+      }
+    },
+    {
+      "date": "2013-03-01",
+      "raw_quotes": 1474,
+      "usable_quotes": 324,
+      "full_grid": [
+        20,
+        9
+      ],
+      "training_grid": [
+        19,
+        8
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.014841199168892816,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.007924173573623513,
+          "mae_iv": 0.005267669732051843,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.04653168475585164
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.00338235978024519,
+          "mae_iv": 0.002450867647058825,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.02086484801831593
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.003619064611438057,
+          "mae_iv": 0.00301969347840663,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.022026990588838558
+        }
+      }
+    },
+    {
+      "date": "2013-04-01",
+      "raw_quotes": 1364,
+      "usable_quotes": 303,
+      "full_grid": [
+        17,
+        9
+      ],
+      "training_grid": [
+        16,
+        8
+      ],
+      "held_out": 25,
+      "bandwidth": [
+        0.014598540145985384,
+        0.0602739726027397
+      ],
+      "methods": {
+        "spline": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.004195761413997974,
+          "mae_iv": 0.0029676987094312828,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.02423741748250329
+        },
+        "linear": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036203304029859247,
+          "mae_iv": 0.0023393758241758273,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.02059912095430081
+        },
+        "nadaraya_watson": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.003403942801211504,
+          "mae_iv": 0.002788760325434847,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.019882100352170206
+        }
+      }
+    },
+    {
+      "date": "2013-05-01",
+      "raw_quotes": 1500,
+      "usable_quotes": 301,
+      "full_grid": [
+        20,
+        8
+      ],
+      "training_grid": [
+        19,
+        7
+      ],
+      "held_out": 27,
+      "bandwidth": [
+        0.014206563432305752,
+        0.0684931506849315
+      ],
+      "methods": {
+        "spline": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.004608533261561848,
+          "mae_iv": 0.003193431404784803,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.028836627329541762
+        },
+        "linear": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.00363771368641418,
+          "mae_iv": 0.0022510016835016818,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.02309825744928531
+        },
+        "nadaraya_watson": {
+          "queries": 27,
+          "finite": 27,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036594339571123856,
+          "mae_iv": 0.0029930874019087556,
+          "log_pairs": 27,
+          "rmse_log_iv": 0.02335096873957765
+        }
+      }
+    },
+    {
+      "date": "2013-06-03",
+      "raw_quotes": 1426,
+      "usable_quotes": 315,
+      "full_grid": [
+        22,
+        9
+      ],
+      "training_grid": [
+        21,
+        8
+      ],
+      "held_out": 30,
+      "bandwidth": [
+        0.013627691469065173,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.004289023781286957,
+          "mae_iv": 0.0026132321095558844,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.025437274139005855
+        },
+        "linear": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036130989758377426,
+          "mae_iv": 0.002128072463768116,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.02130076990563731
+        },
+        "nadaraya_watson": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.0037360394104869804,
+          "mae_iv": 0.002647398280479063,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.02189637322422256
+        }
+      }
+    },
+    {
+      "date": "2013-07-01",
+      "raw_quotes": 1496,
+      "usable_quotes": 342,
+      "full_grid": [
+        23,
+        9
+      ],
+      "training_grid": [
+        22,
+        8
+      ],
+      "held_out": 31,
+      "bandwidth": [
+        0.01394505647747879,
+        0.07671232876712325
+      ],
+      "methods": {
+        "spline": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.0037910310430617935,
+          "mae_iv": 0.0026872131848556854,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.020890914752664812
+        },
+        "linear": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033935660113229007,
+          "mae_iv": 0.002315829493087557,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.018737124619407755
+        },
+        "nadaraya_watson": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.003280725619360677,
+          "mae_iv": 0.0027762308198365504,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.0186432250046859
+        }
+      }
+    },
+    {
+      "date": "2013-08-01",
+      "raw_quotes": 1568,
+      "usable_quotes": 369,
+      "full_grid": [
+        21,
+        9
+      ],
+      "training_grid": [
+        20,
+        8
+      ],
+      "held_out": 29,
+      "bandwidth": [
+        0.013065064018813688,
+        0.05205479452054795
+      ],
+      "methods": {
+        "spline": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.004526492319142678,
+          "mae_iv": 0.0030519794448043277,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.027573118233104595
+        },
+        "linear": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036144766927526453,
+          "mae_iv": 0.002224712643678161,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.022303497722548568
+        },
+        "nadaraya_watson": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.003414643942119264,
+          "mae_iv": 0.002678609006589349,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.021839198571884787
+        }
+      }
+    },
+    {
+      "date": "2013-09-03",
+      "raw_quotes": 1452,
+      "usable_quotes": 336,
+      "full_grid": [
+        23,
+        9
+      ],
+      "training_grid": [
+        22,
+        8
+      ],
+      "held_out": 31,
+      "bandwidth": [
+        0.013175230566534912,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.007587815795613169,
+          "mae_iv": 0.0035938037742615477,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.04638932744134749
+        },
+        "linear": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.0032820930845925,
+          "mae_iv": 0.0016957526881720437,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.019385109530947294
+        },
+        "nadaraya_watson": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.003620699486873389,
+          "mae_iv": 0.0022564162460062946,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.020968506888169456
+        }
+      }
+    },
+    {
+      "date": "2013-10-01",
+      "raw_quotes": 1546,
+      "usable_quotes": 351,
+      "full_grid": [
+        23,
+        9
+      ],
+      "training_grid": [
+        22,
+        8
+      ],
+      "held_out": 31,
+      "bandwidth": [
+        0.012550200803212896,
+        0.0958904109589041
+      ],
+      "methods": {
+        "spline": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.0046533944990303205,
+          "mae_iv": 0.0029549029685478085,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.02748749763762038
+        },
+        "linear": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.0031991096311248268,
+          "mae_iv": 0.0019475604838709662,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.019072893371568422
+        },
+        "nadaraya_watson": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.004202239540825425,
+          "mae_iv": 0.0032230184998178523,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.024359059756268567
+        }
+      }
+    },
+    {
+      "date": "2013-11-01",
+      "raw_quotes": 1604,
+      "usable_quotes": 350,
+      "full_grid": [
+        22,
+        9
+      ],
+      "training_grid": [
+        21,
+        8
+      ],
+      "held_out": 30,
+      "bandwidth": [
+        0.01208021261174197,
+        0.0958904109589041
+      ],
+      "methods": {
+        "spline": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.005268108921007685,
+          "mae_iv": 0.0029893188688065796,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.031359292652402344
+        },
+        "linear": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.003615638457596481,
+          "mae_iv": 0.0021054594594594606,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.023027253118809318
+        },
+        "nadaraya_watson": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.0037145287430674465,
+          "mae_iv": 0.0028232208163712783,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.02417365057449272
+        }
+      }
+    },
+    {
+      "date": "2013-12-02",
+      "raw_quotes": 1488,
+      "usable_quotes": 315,
+      "full_grid": [
+        21,
+        8
+      ],
+      "training_grid": [
+        20,
+        7
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.01169864295741696,
+        0.08630136986301369
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0055102675104400185,
+          "mae_iv": 0.0034720230738170613,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.035247739863249736
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.003781787397506834,
+          "mae_iv": 0.0023129886185243357,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.024423299463492965
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.003448056540796887,
+          "mae_iv": 0.0022839958131669197,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.02246601939269891
+        }
+      }
+    },
+    {
+      "date": "2014-01-02",
+      "raw_quotes": 1594,
+      "usable_quotes": 347,
+      "full_grid": [
+        21,
+        8
+      ],
+      "training_grid": [
+        20,
+        7
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.011458691417440159,
+        0.06438356164383562
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004713884308813733,
+          "mae_iv": 0.003578603485830815,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.025675646393068824
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004421035383753138,
+          "mae_iv": 0.00339712053571428,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.02455899643920794
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004917205687399201,
+          "mae_iv": 0.0038807243229910574,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.027044152578342025
+        }
+      }
+    },
+    {
+      "date": "2014-02-03",
+      "raw_quotes": 1830,
+      "usable_quotes": 442,
+      "full_grid": [
+        22,
+        9
+      ],
+      "training_grid": [
+        21,
+        8
+      ],
+      "held_out": 30,
+      "bandwidth": [
+        0.011863803535413497,
+        0.0410958904109589
+      ],
+      "methods": {
+        "spline": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.04532381720016449,
+          "mae_iv": 0.02617664992550898,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.15449841177142273
+        },
+        "linear": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.024479282066428704,
+          "mae_iv": 0.01673029432624115,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.0944542052907456
+        },
+        "nadaraya_watson": {
+          "queries": 30,
+          "finite": 30,
+          "nonpositive": 0,
+          "rmse_iv": 0.028807117697879227,
+          "mae_iv": 0.019402119120387674,
+          "log_pairs": 30,
+          "rmse_log_iv": 0.10699016036860273
+        }
+      }
+    },
+    {
+      "date": "2014-03-03",
+      "raw_quotes": 3560,
+      "usable_quotes": 865,
+      "full_grid": [
+        25,
+        8
+      ],
+      "training_grid": [
+        24,
+        7
+      ],
+      "held_out": 32,
+      "bandwidth": [
+        0.011152001784320298,
+        0.08630136986301369
+      ],
+      "methods": {
+        "spline": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 1,
+          "rmse_iv": 0.050150839638503183,
+          "mae_iv": 0.026062304534527212,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.5320913877309065
+        },
+        "linear": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.04647684478437633,
+          "mae_iv": 0.02253379725682323,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.4714863581276884
+        },
+        "nadaraya_watson": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.0439009926571448,
+          "mae_iv": 0.027302360077834244,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.5342992510892928
+        }
+      }
+    },
+    {
+      "date": "2014-04-01",
+      "raw_quotes": 2142,
+      "usable_quotes": 537,
+      "full_grid": [
+        9,
+        5
+      ],
+      "training_grid": [
+        8,
+        4
+      ],
+      "held_out": 13,
+      "bandwidth": [
+        0.05604752830400184,
+        0.046575342465753344
+      ],
+      "methods": {
+        "spline": {
+          "queries": 13,
+          "finite": 13,
+          "nonpositive": 0,
+          "rmse_iv": 0.0031500737854458154,
+          "mae_iv": 0.0020426445365342694,
+          "log_pairs": 13,
+          "rmse_log_iv": 0.019110329504244863
+        },
+        "linear": {
+          "queries": 13,
+          "finite": 13,
+          "nonpositive": 0,
+          "rmse_iv": 0.002050742559656537,
+          "mae_iv": 0.0012440050167224108,
+          "log_pairs": 13,
+          "rmse_log_iv": 0.012575181828734556
+        },
+        "nadaraya_watson": {
+          "queries": 13,
+          "finite": 13,
+          "nonpositive": 0,
+          "rmse_iv": 0.004074135075762331,
+          "mae_iv": 0.003401988151290509,
+          "log_pairs": 13,
+          "rmse_log_iv": 0.024378190449972307
+        }
+      }
+    },
+    {
+      "date": "2014-05-01",
+      "raw_quotes": 2324,
+      "usable_quotes": 549,
+      "full_grid": [
+        9,
+        5
+      ],
+      "training_grid": [
+        8,
+        4
+      ],
+      "held_out": 13,
+      "bandwidth": [
+        0.05704506560182532,
+        0.046575342465753344
+      ],
+      "methods": {
+        "spline": {
+          "queries": 13,
+          "finite": 13,
+          "nonpositive": 0,
+          "rmse_iv": 0.01986081509855012,
+          "mae_iv": 0.011465595652591169,
+          "log_pairs": 13,
+          "rmse_log_iv": 0.13047687328736632
+        },
+        "linear": {
+          "queries": 13,
+          "finite": 13,
+          "nonpositive": 0,
+          "rmse_iv": 0.007712334599591252,
+          "mae_iv": 0.004067320234113705,
+          "log_pairs": 13,
+          "rmse_log_iv": 0.04188425329771292
+        },
+        "nadaraya_watson": {
+          "queries": 13,
+          "finite": 13,
+          "nonpositive": 0,
+          "rmse_iv": 0.0074926008756964054,
+          "mae_iv": 0.0062262128255164825,
+          "log_pairs": 13,
+          "rmse_log_iv": 0.04226773610841017
+        }
+      }
+    },
+    {
+      "date": "2014-06-02",
+      "raw_quotes": 2036,
+      "usable_quotes": 493,
+      "full_grid": [
+        6,
+        5
+      ],
+      "training_grid": [
+        5,
+        4
+      ],
+      "held_out": 10,
+      "bandwidth": [
+        0.054812541109405866,
+        0.046575342465753455
+      ],
+      "methods": {
+        "spline": {
+          "queries": 10,
+          "finite": 10,
+          "nonpositive": 0,
+          "rmse_iv": 0.004825356445860577,
+          "mae_iv": 0.003634064848823712,
+          "log_pairs": 10,
+          "rmse_log_iv": 0.03187981645953959
+        },
+        "linear": {
+          "queries": 10,
+          "finite": 10,
+          "nonpositive": 0,
+          "rmse_iv": 0.0043792649214637654,
+          "mae_iv": 0.0030451956521739265,
+          "log_pairs": 10,
+          "rmse_log_iv": 0.028360811289331156
+        },
+        "nadaraya_watson": {
+          "queries": 10,
+          "finite": 10,
+          "nonpositive": 0,
+          "rmse_iv": 0.004835023335045749,
+          "mae_iv": 0.0038851394953897445,
+          "log_pairs": 10,
+          "rmse_log_iv": 0.03100934261383865
+        }
+      }
+    },
+    {
+      "date": "2014-07-01",
+      "raw_quotes": 2030,
+      "usable_quotes": 510,
+      "full_grid": [
+        16,
+        6
+      ],
+      "training_grid": [
+        15,
+        5
+      ],
+      "held_out": 21,
+      "bandwidth": [
+        0.010532968190436032,
+        0.10136986301369866
+      ],
+      "methods": {
+        "spline": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.002888618993604383,
+          "mae_iv": 0.0020435905469764226,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.02140379832502516
+        },
+        "linear": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.0025569643508395372,
+          "mae_iv": 0.0016786437613019866,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.01934316582298744
+        },
+        "nadaraya_watson": {
+          "queries": 21,
+          "finite": 21,
+          "nonpositive": 0,
+          "rmse_iv": 0.002599691615162185,
+          "mae_iv": 0.0019925593377752644,
+          "log_pairs": 21,
+          "rmse_log_iv": 0.019377548609862346
+        }
+      }
+    },
+    {
+      "date": "2014-08-01",
+      "raw_quotes": 2214,
+      "usable_quotes": 581,
+      "full_grid": [
+        16,
+        7
+      ],
+      "training_grid": [
+        15,
+        6
+      ],
+      "held_out": 22,
+      "bandwidth": [
+        0.010563008344776581,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.0038653457738999377,
+          "mae_iv": 0.0027875968208995474,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.024143799607168642
+        },
+        "linear": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.0034787043312433977,
+          "mae_iv": 0.002439545454545462,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.021693267700170632
+        },
+        "nadaraya_watson": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.003617819449837037,
+          "mae_iv": 0.0030590081868100364,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.02316793365081241
+        }
+      }
+    },
+    {
+      "date": "2014-09-02",
+      "raw_quotes": 2076,
+      "usable_quotes": 499,
+      "full_grid": [
+        16,
+        7
+      ],
+      "training_grid": [
+        15,
+        6
+      ],
+      "held_out": 22,
+      "bandwidth": [
+        0.0099930048965724,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.004006821710435387,
+          "mae_iv": 0.0025420742947173734,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.026565985904378416
+        },
+        "linear": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036956642098224385,
+          "mae_iv": 0.001948831168831168,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.024556199104197117
+        },
+        "nadaraya_watson": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.003255048347698189,
+          "mae_iv": 0.0023021461119998535,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.022511695549818057
+        }
+      }
+    },
+    {
+      "date": "2014-10-01",
+      "raw_quotes": 1932,
+      "usable_quotes": 494,
+      "full_grid": [
+        12,
+        9
+      ],
+      "training_grid": [
+        11,
+        8
+      ],
+      "held_out": 20,
+      "bandwidth": [
+        0.0102870075095155,
+        0.0410958904109589
+      ],
+      "methods": {
+        "spline": {
+          "queries": 20,
+          "finite": 20,
+          "nonpositive": 0,
+          "rmse_iv": 0.005230684146997919,
+          "mae_iv": 0.004390015675459033,
+          "log_pairs": 20,
+          "rmse_log_iv": 0.028118005117128104
+        },
+        "linear": {
+          "queries": 20,
+          "finite": 20,
+          "nonpositive": 0,
+          "rmse_iv": 0.004083995709469321,
+          "mae_iv": 0.0032775384615384593,
+          "log_pairs": 20,
+          "rmse_log_iv": 0.021790834112538085
+        },
+        "nadaraya_watson": {
+          "queries": 20,
+          "finite": 20,
+          "nonpositive": 0,
+          "rmse_iv": 0.003700859121108299,
+          "mae_iv": 0.0031404820646051407,
+          "log_pairs": 20,
+          "rmse_log_iv": 0.020528728582813245
+        }
+      }
+    },
+    {
+      "date": "2014-11-03",
+      "raw_quotes": 2258,
+      "usable_quotes": 591,
+      "full_grid": [
+        22,
+        5
+      ],
+      "training_grid": [
+        21,
+        4
+      ],
+      "held_out": 26,
+      "bandwidth": [
+        0.009832841691248762,
+        0.0465753424657534
+      ],
+      "methods": {
+        "spline": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.005674449933527858,
+          "mae_iv": 0.004675648926983362,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.032678502162252425
+        },
+        "linear": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004111034613833093,
+          "mae_iv": 0.0036438523573200953,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.02479084435803116
+        },
+        "nadaraya_watson": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.003337276192553465,
+          "mae_iv": 0.0027748924497477496,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.019868593779250984
+        }
+      }
+    },
+    {
+      "date": "2014-12-01",
+      "raw_quotes": 2398,
+      "usable_quotes": 560,
+      "full_grid": [
+        25,
+        5
+      ],
+      "training_grid": [
+        24,
+        4
+      ],
+      "held_out": 29,
+      "bandwidth": [
+        0.00954107432496909,
+        0.2191780821917808
+      ],
+      "methods": {
+        "spline": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033668289365011194,
+          "mae_iv": 0.0018988060414026533,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.01907663956349829
+        },
+        "linear": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0028917161426973573,
+          "mae_iv": 0.0011630428192497219,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.01634385891968775
+        },
+        "nadaraya_watson": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.002886292569246946,
+          "mae_iv": 0.0022530331646077153,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.016910696505197997
+        }
+      }
+    },
+    {
+      "date": "2015-01-02",
+      "raw_quotes": 2230,
+      "usable_quotes": 580,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.00971439673596275,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.010434937685120807,
+          "mae_iv": 0.00676388771275199,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.04779459873502376
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.008789390489841153,
+          "mae_iv": 0.005006938301938299,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.03737472053853443
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.008726900543948894,
+          "mae_iv": 0.005626695421764765,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.03729409914307732
+        }
+      }
+    },
+    {
+      "date": "2015-02-02",
+      "raw_quotes": 2160,
+      "usable_quotes": 615,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.009805844283192755,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0047464212485847255,
+          "mae_iv": 0.0038426750976342902,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.022888987099034763
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0041290128766132495,
+          "mae_iv": 0.003059489459815547,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.01997813249767699
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0036699020174309977,
+          "mae_iv": 0.0027047988890726653,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.017347953988751056
+        }
+      }
+    },
+    {
+      "date": "2015-03-02",
+      "raw_quotes": 2084,
+      "usable_quotes": 535,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.009142439202779351,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.002632134838559391,
+          "mae_iv": 0.0021343024420359957,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.015665781349838464
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.002317174223914121,
+          "mae_iv": 0.0016387681159420236,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.013904858069427336
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.00296668854243059,
+          "mae_iv": 0.0021902310661625407,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.0179299600693371
+        }
+      }
+    },
+    {
+      "date": "2015-04-01",
+      "raw_quotes": 1994,
+      "usable_quotes": 546,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.009519276534983412,
+        0.046575342465753455
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.005370094676655047,
+          "mae_iv": 0.003816182209687644,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.026254928792795854
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.004773358596795631,
+          "mae_iv": 0.0034290303030303075,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.022358050192219495
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.004462602618040017,
+          "mae_iv": 0.0034100255078949567,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.02246531968712711
+        }
+      }
+    },
+    {
+      "date": "2015-05-01",
+      "raw_quotes": 2094,
+      "usable_quotes": 570,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.009170105456212774,
+        0.04657534246575343
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.004068456545120713,
+          "mae_iv": 0.0026781307822603736,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.021200405600657946
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003748565224512477,
+          "mae_iv": 0.002158393939393942,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.019352106846091333
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0038839953534442976,
+          "mae_iv": 0.0026972147819472117,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.020329400801572608
+        }
+      }
+    },
+    {
+      "date": "2015-06-01",
+      "raw_quotes": 2008,
+      "usable_quotes": 509,
+      "full_grid": [
+        25,
+        8
+      ],
+      "training_grid": [
+        24,
+        7
+      ],
+      "held_out": 32,
+      "bandwidth": [
+        0.009056330374932031,
+        0.08630136986301369
+      ],
+      "methods": {
+        "spline": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.00502653413650129,
+          "mae_iv": 0.003226639509511301,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.03308745511025152
+        },
+        "linear": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035320416155185425,
+          "mae_iv": 0.002314612771739129,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.02270384822021785
+        },
+        "nadaraya_watson": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.003006914449965292,
+          "mae_iv": 0.0021254701612946026,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.01883522030790588
+        }
+      }
+    },
+    {
+      "date": "2015-07-01",
+      "raw_quotes": 1882,
+      "usable_quotes": 498,
+      "full_grid": [
+        25,
+        8
+      ],
+      "training_grid": [
+        24,
+        7
+      ],
+      "held_out": 32,
+      "bandwidth": [
+        0.009266123054114228,
+        0.06027397260273973
+      ],
+      "methods": {
+        "spline": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.003951624168538401,
+          "mae_iv": 0.002844229059751546,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.02067137221106186
+        },
+        "linear": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.0031954804104996136,
+          "mae_iv": 0.0025106661184210568,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.01649250193734424
+        },
+        "nadaraya_watson": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.003363273135972928,
+          "mae_iv": 0.0024202280689264123,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.017672951986529278
+        }
+      }
+    },
+    {
+      "date": "2015-08-03",
+      "raw_quotes": 1952,
+      "usable_quotes": 514,
+      "full_grid": [
+        25,
+        8
+      ],
+      "training_grid": [
+        24,
+        7
+      ],
+      "held_out": 32,
+      "bandwidth": [
+        0.008960573476702538,
+        0.06986301369863013
+      ],
+      "methods": {
+        "spline": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.00446536281663523,
+          "mae_iv": 0.0033313326368528224,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.024002693894176287
+        },
+        "linear": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.0034759654381962502,
+          "mae_iv": 0.002704819613821136,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.01901640269764292
+        },
+        "nadaraya_watson": {
+          "queries": 32,
+          "finite": 32,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035589364570326703,
+          "mae_iv": 0.002832527744822654,
+          "log_pairs": 32,
+          "rmse_log_iv": 0.02027290320226765
+        }
+      }
+    },
+    {
+      "date": "2015-09-01",
+      "raw_quotes": 2542,
+      "usable_quotes": 583,
+      "full_grid": [
+        23,
+        9
+      ],
+      "training_grid": [
+        22,
+        8
+      ],
+      "held_out": 31,
+      "bandwidth": [
+        0.009896091044037547,
+        0.035616438356164404
+      ],
+      "methods": {
+        "spline": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.007696624093321613,
+          "mae_iv": 0.005372921492607747,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.02308652326990066
+        },
+        "linear": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.005503869109927245,
+          "mae_iv": 0.004222419354838707,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.015884312363429753
+        },
+        "nadaraya_watson": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.015629884875918078,
+          "mae_iv": 0.011497561857180674,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.039943943206838556
+        }
+      }
+    },
+    {
+      "date": "2015-10-01",
+      "raw_quotes": 2066,
+      "usable_quotes": 532,
+      "full_grid": [
+        21,
+        9
+      ],
+      "training_grid": [
+        20,
+        8
+      ],
+      "held_out": 29,
+      "bandwidth": [
+        0.00978282136568187,
+        0.035616438356164376
+      ],
+      "methods": {
+        "spline": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.004764307622140014,
+          "mae_iv": 0.0035007754062907127,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.018574353001012584
+        },
+        "linear": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033696875430714707,
+          "mae_iv": 0.0026244137931034496,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.01282912097832892
+        },
+        "nadaraya_watson": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.0061490683167898675,
+          "mae_iv": 0.004494855626181338,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.021604278869395557
+        }
+      }
+    },
+    {
+      "date": "2015-11-02",
+      "raw_quotes": 1992,
+      "usable_quotes": 469,
+      "full_grid": [
+        21,
+        8
+      ],
+      "training_grid": [
+        20,
+        7
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.00872524212546899,
+        0.04794520547945205
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.008675724605611052,
+          "mae_iv": 0.005200610752467299,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.03994166835159436
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004218699788600888,
+          "mae_iv": 0.003210025510204089,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.023906086858175576
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.0046421434193249,
+          "mae_iv": 0.0038677875994521287,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.0264818102629043
+        }
+      }
+    },
+    {
+      "date": "2015-12-01",
+      "raw_quotes": 1780,
+      "usable_quotes": 379,
+      "full_grid": [
+        20,
+        6
+      ],
+      "training_grid": [
+        19,
+        5
+      ],
+      "held_out": 25,
+      "bandwidth": [
+        0.008683570684265396,
+        0.0493150684931507
+      ],
+      "methods": {
+        "spline": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.041739526298602385,
+          "mae_iv": 0.015774801685483633,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.14623867943847105
+        },
+        "linear": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.010053715708908598,
+          "mae_iv": 0.006763999999999995,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.04867271108948102
+        },
+        "nadaraya_watson": {
+          "queries": 25,
+          "finite": 25,
+          "nonpositive": 0,
+          "rmse_iv": 0.014815133242288977,
+          "mae_iv": 0.008645331813664121,
+          "log_pairs": 25,
+          "rmse_log_iv": 0.06984826634123688
+        }
+      }
+    },
+    {
+      "date": "2016-01-04",
+      "raw_quotes": 1742,
+      "usable_quotes": 437,
+      "full_grid": [
+        16,
+        7
+      ],
+      "training_grid": [
+        15,
+        6
+      ],
+      "held_out": 22,
+      "bandwidth": [
+        0.0091324200913242,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.007224241511531782,
+          "mae_iv": 0.005954906973364418,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.03288643825572154
+        },
+        "linear": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.004150195353218482,
+          "mae_iv": 0.0033095279720279733,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.01890959463937134
+        },
+        "nadaraya_watson": {
+          "queries": 22,
+          "finite": 22,
+          "nonpositive": 0,
+          "rmse_iv": 0.007287639860894447,
+          "mae_iv": 0.0053454271565020256,
+          "log_pairs": 22,
+          "rmse_log_iv": 0.028092540087022635
+        }
+      }
+    },
+    {
+      "date": "2016-02-01",
+      "raw_quotes": 1960,
+      "usable_quotes": 472,
+      "full_grid": [
+        25,
+        7
+      ],
+      "training_grid": [
+        24,
+        6
+      ],
+      "held_out": 31,
+      "bandwidth": [
+        0.00957762666411266,
+        0.0410958904109589
+      ],
+      "methods": {
+        "spline": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.008533681239700127,
+          "mae_iv": 0.005677663367854802,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.0351218907341584
+        },
+        "linear": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.003749543409081036,
+          "mae_iv": 0.002867473118279568,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.01824379251504256
+        },
+        "nadaraya_watson": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.003507619172643332,
+          "mae_iv": 0.003000141026597495,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.016590351297155036
+        }
+      }
+    },
+    {
+      "date": "2016-03-01",
+      "raw_quotes": 1934,
+      "usable_quotes": 486,
+      "full_grid": [
+        20,
+        9
+      ],
+      "training_grid": [
+        19,
+        8
+      ],
+      "held_out": 28,
+      "bandwidth": [
+        0.009452689290103011,
+        0.035616438356164404
+      ],
+      "methods": {
+        "spline": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.010910956987753757,
+          "mae_iv": 0.008163472972987997,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.055583797213920344
+        },
+        "linear": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.004078483088791163,
+          "mae_iv": 0.0031372023809523733,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.02012190869690939
+        },
+        "nadaraya_watson": {
+          "queries": 28,
+          "finite": 28,
+          "nonpositive": 0,
+          "rmse_iv": 0.010482658072515848,
+          "mae_iv": 0.006346986092385149,
+          "log_pairs": 28,
+          "rmse_log_iv": 0.037913692871134705
+        }
+      }
+    },
+    {
+      "date": "2016-04-01",
+      "raw_quotes": 1934,
+      "usable_quotes": 521,
+      "full_grid": [
+        18,
+        9
+      ],
+      "training_grid": [
+        17,
+        8
+      ],
+      "held_out": 26,
+      "bandwidth": [
+        0.009061254077564307,
+        0.035616438356164376
+      ],
+      "methods": {
+        "spline": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.005625747088184209,
+          "mae_iv": 0.004693889393592032,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.03483502484726721
+        },
+        "linear": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004044186696786086,
+          "mae_iv": 0.0031891923076923035,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.025483861510509336
+        },
+        "nadaraya_watson": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004699219239930078,
+          "mae_iv": 0.0037356012527721286,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.02886240713571742
+        }
+      }
+    },
+    {
+      "date": "2016-05-02",
+      "raw_quotes": 1888,
+      "usable_quotes": 487,
+      "full_grid": [
+        19,
+        8
+      ],
+      "training_grid": [
+        18,
+        7
+      ],
+      "held_out": 26,
+      "bandwidth": [
+        0.009370314842578775,
+        0.04794520547945205
+      ],
+      "methods": {
+        "spline": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004457796013426344,
+          "mae_iv": 0.0035033762598774424,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.02589754195642818
+        },
+        "linear": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.003352563805815832,
+          "mae_iv": 0.0022724519230769313,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.019336319337311086
+        },
+        "nadaraya_watson": {
+          "queries": 26,
+          "finite": 26,
+          "nonpositive": 0,
+          "rmse_iv": 0.004153536204482922,
+          "mae_iv": 0.003168742892519792,
+          "log_pairs": 26,
+          "rmse_log_iv": 0.02316413854924394
+        }
+      }
+    },
+    {
+      "date": "2016-06-01",
+      "raw_quotes": 1882,
+      "usable_quotes": 499,
+      "full_grid": [
+        23,
+        7
+      ],
+      "training_grid": [
+        22,
+        6
+      ],
+      "held_out": 29,
+      "bandwidth": [
+        0.009062075215224286,
+        0.03835616438356165
+      ],
+      "methods": {
+        "spline": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.020094686617472577,
+          "mae_iv": 0.009762356129930457,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.09484849424786158
+        },
+        "linear": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.00574684728036104,
+          "mae_iv": 0.003953362068965516,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.03127705930784777
+        },
+        "nadaraya_watson": {
+          "queries": 29,
+          "finite": 29,
+          "nonpositive": 0,
+          "rmse_iv": 0.009397570961337818,
+          "mae_iv": 0.006431867146517679,
+          "log_pairs": 29,
+          "rmse_log_iv": 0.047387142618876506
+        }
+      }
+    },
+    {
+      "date": "2016-07-01",
+      "raw_quotes": 2048,
+      "usable_quotes": 536,
+      "full_grid": [
+        25,
+        7
+      ],
+      "training_grid": [
+        24,
+        6
+      ],
+      "held_out": 31,
+      "bandwidth": [
+        0.00925240562546259,
+        0.15342465753424656
+      ],
+      "methods": {
+        "spline": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.005230631688013921,
+          "mae_iv": 0.003894182379880948,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.02729972907632706
+        },
+        "linear": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.003988024284114866,
+          "mae_iv": 0.0027363734115347076,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.020810126109346617
+        },
+        "nadaraya_watson": {
+          "queries": 31,
+          "finite": 31,
+          "nonpositive": 0,
+          "rmse_iv": 0.004673173834918654,
+          "mae_iv": 0.003928007881804102,
+          "log_pairs": 31,
+          "rmse_log_iv": 0.024915741780234105
+        }
+      }
+    },
+    {
+      "date": "2016-08-01",
+      "raw_quotes": 2084,
+      "usable_quotes": 547,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.008632596685082872,
+        0.05753424657534248
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.004007738381284222,
+          "mae_iv": 0.003261240758358778,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.021451022681495225
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003733241273215594,
+          "mae_iv": 0.0022662626262626244,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.020064350134883405
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003907346669360336,
+          "mae_iv": 0.003109070329663464,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.020951593041725836
+        }
+      }
+    },
+    {
+      "date": "2016-09-01",
+      "raw_quotes": 2160,
+      "usable_quotes": 539,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.008566044200788103,
+        0.07671232876712325
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.005457321868737588,
+          "mae_iv": 0.004192929613613695,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.033487515828401405
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033787508268608,
+          "mae_iv": 0.002687630853994492,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.022237652416126866
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.00541480205191667,
+          "mae_iv": 0.0036320773715129684,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.03216556816071022
+        }
+      }
+    },
+    {
+      "date": "2016-10-03",
+      "raw_quotes": 1998,
+      "usable_quotes": 503,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.008435259384226068,
+        0.07671232876712328
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.00425717911297244,
+          "mae_iv": 0.0032588776708876756,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.02064993165003812
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003194708994930456,
+          "mae_iv": 0.002523212121212123,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.015416671696749807
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003816717542961955,
+          "mae_iv": 0.0028526604452732344,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.018526032787151554
+        }
+      }
+    },
+    {
+      "date": "2016-11-01",
+      "raw_quotes": 2034,
+      "usable_quotes": 502,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.00861252260787193,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003982263071748459,
+          "mae_iv": 0.0030095374235011778,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.018985811283594795
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0033489984934441056,
+          "mae_iv": 0.0024635353535353522,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.015811721189334087
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.003997501345378946,
+          "mae_iv": 0.0027579086390397294,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.019608494392272118
+        }
+      }
+    },
+    {
+      "date": "2016-12-01",
+      "raw_quotes": 2224,
+      "usable_quotes": 509,
+      "full_grid": [
+        25,
+        9
+      ],
+      "training_grid": [
+        24,
+        8
+      ],
+      "held_out": 33,
+      "bandwidth": [
+        0.008660258075690708,
+        0.0767123287671233
+      ],
+      "methods": {
+        "spline": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.0035859146818282587,
+          "mae_iv": 0.0025973779296906106,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.019934011448575595
+        },
+        "linear": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.002854728529752469,
+          "mae_iv": 0.002001149961149966,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.01601422955968119
+        },
+        "nadaraya_watson": {
+          "queries": 33,
+          "finite": 33,
+          "nonpositive": 0,
+          "rmse_iv": 0.00382111405785351,
+          "mae_iv": 0.002676218239137174,
+          "log_pairs": 33,
+          "rmse_log_iv": 0.021847780788859225
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "First available trading date per month, not every trading day.",
+    "Dense complete call grids select a subset of quotes; results are not all-market accuracy.",
+    "Vendor IV is the reconstruction target, not independently verified true volatility.",
+    "NW bandwidth is a predeclared spacing heuristic, not optimized.",
+    "No PCA/AR(1), temporal holdout, risk-neutral dynamics or arbitrage enforcement.",
+    "MATLAB was not run on these historical fixtures."
+  ]
+}

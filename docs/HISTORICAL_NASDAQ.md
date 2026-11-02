@@ -4,6 +4,10 @@ Research date: 2026-11-02. Here, Nasdaq means the **Nasdaq-100**, distinguishing
 NDX index options from QQQ ETF options. Nasdaq Composite price history is not
 an implied-volatility surface dataset.
 
+**Executed results:** [70 monthly surfaces and 1,903 held-out quotes](HISTORICAL_RESULTS.md),
+with successful Python/Octave/R numerical comparisons. The actual files contain
+2,435,400 option rows from 2011-03-23 through 2016-12-30.
+
 ## Availability for the requested 2000-2016 interval
 
 | Source | Instrument and published history | What it supplies | Relevance |

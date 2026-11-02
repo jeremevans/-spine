@@ -13,6 +13,10 @@ It identifies public **QQQ 2011-2016** option files and provides a reproducible
 held-out-quote benchmark for all three methods. QQQ is an ETF proxy; no complete
 public NDX 2000-2016 archive has been verified. This benchmark measures surface
 reconstruction, not PCA/AR(1) forecasting.
+The [completed historical run](docs/HISTORICAL_RESULTS.md) tested 70 monthly surfaces
+and 1,903 held-out quotes: Python, Octave and R agreed within `2.4e-15`. Linear
+had the smallest quote-reconstruction RMSE in this experiment; spline produced
+one nonpositive IV prediction, which matters before taking logarithms.
 
 ```python
 from spline_equivalence import interpolate_surface
