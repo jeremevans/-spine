@@ -1,0 +1,15 @@
+test_basis_linearity (test_splines.SplineTests.test_basis_linearity) ... ok
+test_comparator_rejects_corruption (test_splines.SplineTests.test_comparator_rejects_corruption) ... ok
+test_constant_partition_of_unity (test_splines.SplineTests.test_constant_partition_of_unity) ... ok
+test_engine_import_rejects_bad_evidence (test_splines.SplineTests.test_engine_import_rejects_bad_evidence) ... ok
+test_exact_constraints_and_answers (test_splines.SplineTests.test_exact_constraints_and_answers) ... ok
+test_independent_construction (test_splines.SplineTests.test_independent_construction) ... ok
+test_natural_spline_is_not_equivalent (test_splines.SplineTests.test_natural_spline_is_not_equivalent) ... ok
+test_outside_policy (test_splines.SplineTests.test_outside_policy) ... ok
+test_rejects_unsupported_inputs (test_splines.SplineTests.test_rejects_unsupported_inputs) ... ok
+test_tensor_cubic_reproduction (test_splines.SplineTests.test_tensor_cubic_reproduction) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.063s
+
+OK
