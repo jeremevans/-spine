@@ -136,6 +136,11 @@ could consume. This example does not fit PCA or AR(1), claim historical market
 data, or enforce option-price arbitrage constraints. A separate overshoot case
 shows that positive inputs do not guarantee a positive spline.
 
+Spline equivalence does not establish which interpolation method a particular
+stochastic volatility surface paper used. Reproducing a published model also
+requires matching its interpolation, log transformation, PCA inputs and factor
+dynamics. The example here isolates the interpolation step.
+
 To rebuild the delivered figure directly from saved engine outputs:
 
 ```bash
@@ -166,27 +171,19 @@ same fixture when moving results between computers. The identity checks protect
 against accidental mix-ups; they are not cryptographic authentication of an
 external MATLAB installation.
 
-## Upload to GitHub
+## GitHub project and automated verification
 
-Suggested repository name: **`spline-equivalence`**. Upload the **contents** of
-this directory as the repository root, including `.github/workflows/`.
-Uploading the ZIP itself will not activate tests.
-
-After creating an empty repository, you can use:
-
-```bash
-git init -b main
-git add .
-git commit -m "Add spline equivalence proof and cross-language tests"
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
-```
+Project: [jeremevans/-spine](https://github.com/jeremevans/-spine).
+See [GitHub Actions](https://github.com/jeremevans/-spine/actions) for current
+workflow runs and downloadable evidence.
 
 The workflow runs Python/Octave/R checks on pushes to `main`, pull requests and
 manual dispatch. A second job uses MathWorks' official actions with MATLAB
 R2025b in **public repositories**. Download the `matlab-evidence` artifact to
-inspect the actual version, native results and comparison report. The workflow
-has been prepared and inspected locally; it has not yet executed on GitHub.
+inspect the actual version, native results and comparison report. The delivered
+`evidence/` directory is the original local run. Later GitHub runs provide
+separate evidence; use their conclusions and artifacts to assess the tested
+commit and runtime versions.
 
 MathWorks currently documents automatic product licensing for public projects.
 The MATLAB job is skipped in private repositories until separately licensed and

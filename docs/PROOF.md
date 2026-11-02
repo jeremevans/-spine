@@ -15,6 +15,11 @@ unexecuted MATLAB release. Numerical evidence is recorded separately in
 endpoint rules, smoothing splines, and scattered-data splines are outside this
 claim. Use MATLAB/Octave **`spline`** and SciPy **`cubic`**.
 
+This algorithmic equivalence does not establish which interpolation method was
+used in any particular stochastic volatility surface paper. Interpolation,
+smoothing, log transformation and PCA conventions must be checked separately
+when reproducing a published model.
+
 ## 1. Construct the one-dimensional spline
 
 Number the nodes from 0 to n−1. Write
