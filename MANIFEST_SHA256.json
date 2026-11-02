@@ -37,7 +37,7 @@
   "examples/volatility_surface.py": "49085932523b47c4e8825463db0a659cacf3137b74ff10a6457f6e5cebc9ed7c",
   "fixtures/methods.json": "5e786cc6e5895967a7bff17e248751aaf85638c58947fdfdd011815a2b634200",
   "fixtures/splines.json": "000d524a1557ba9cb267821cac284437bdde90da7a77c83cfeb846bdc409bf02",
-  "matlab/interpolate_surface.m": "6423b60eefd5bed561e92cad570a7869de59ea202d61784500a56c8ae78b2c50",
+  "matlab/interpolate_surface.m": "cb1923581c3d05d22bfb16df8692706f7f0f4b1860861d0b8a160ce8114b4669",
   "matlab/nadaraya_watson.m": "495c20b8a708fcc937cb4cdca0e764e61ff7d623f2310acb6e7f7af6d15a4dc8",
   "pyproject.toml": "7c4b087637d3a716a366a4af30055cf0ad905dafb822ef28019aa81e55492b8d",
   "r/interpn_spline.R": "765a392f7fb9776d27cb0ae16710a67cdf887b24584bcecadbb37e69ec1026be",

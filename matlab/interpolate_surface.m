@@ -8,7 +8,8 @@ function y = interpolate_surface(axes, values, q, method, bandwidth, fill)
   assert(isscalar(fill) && isreal(fill));
   d=numel(axes); assert(d>0 && iscell(axes) && ismatrix(q) && size(q,2)==d);
   assert(isreal(values) && isreal(q) && all(isfinite(values(:))) && all(isfinite(q(:))));
-  shape=cellfun(@numel,axes); assert(numel(values)==prod(shape));
+  shape=cellfun(@numel,axes); shape=shape(:)'; % MATLAB requires a row size vector.
+  assert(numel(values)==prod(shape));
   minimum=2; if strcmp(method,'spline'), minimum=4; end
   inside=true(size(q,1),1);
   for j=1:d
