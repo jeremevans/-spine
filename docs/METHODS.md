@@ -126,6 +126,28 @@ reported errors are demonstration results, not a claim that one method is best.
 
 ![Three methods on identical synthetic IV observations](method_comparison.png)
 
+## Cross-language verification
+
+The new-method suite passed in actual MATLAB R2025b Update 7, Python, Octave and
+R. See [measured results and preserved native evidence](METHOD_RESULTS.md).
+
+To export fresh MATLAB/Octave results, run from the repository root:
+
+```matlab
+addpath('scripts');
+run_methods('fixtures/methods.json', 'results/methods/matlab.json');
+```
+
+Then check that MATLAB export in Python:
+
+```bash
+python scripts/verify_methods.py --python-only \
+  --matlab-results results/methods/matlab.json --require MATLAB
+```
+
+If exporting in Octave, the native runner labels the output Octave; use the
+normal verifier's automatic Octave execution instead of importing it as MATLAB.
+
 ## Primary references and naming traps
 
 - [MathWorks interpn](https://www.mathworks.com/help/matlab/ref/interpn.html): native grid linear interpolation and explicit outside fills.

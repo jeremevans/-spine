@@ -26,6 +26,10 @@ python scripts/verify_methods.py --require Octave R
 python examples/compare_methods.py --bandwidth 0.09 0.35
 ```
 
+**The expanded GitHub suite passed in all four languages:** 42 original spline
+cases plus 20 new cases, totaling **62 cases and 9,302 queries**, with 22 passing
+Python unit tests. [New-method results and native evidence](docs/METHOD_RESULTS.md).
+
 This repository answers a specific porting question: can MATLAB
 `interpn(...,'spline')` be reproduced in open-source languages? For a complete
 rectilinear grid with at least four nodes on every axis, the underlying spline

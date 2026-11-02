@@ -1,0 +1,575 @@
+{
+  "timestamp_utc": "2026-11-02T06:25:10.541038+00:00",
+  "fixture_id": "1b0422ec860ccc8a9bd1c31b5030905b746726ed8337e79b3457aba3e51f96dd",
+  "cases": 20,
+  "queries": 615,
+  "python": "3.12.15",
+  "reference": "50-digit Decimal corner sums and Gaussian weighted means",
+  "absolute_tolerance": 2e-11,
+  "relative_tolerance": 2e-10,
+  "engines": {
+    "Octave": {
+      "status": "RUN",
+      "version": "8.4.0"
+    },
+    "R": {
+      "status": "RUN",
+      "version": "R version 4.3.3 (2024-02-29)"
+    },
+    "MATLAB": {
+      "status": "NOT RUN"
+    }
+  },
+  "missing_required_engines": [],
+  "passed": true,
+  "results": [
+    {
+      "name": "linear_1d_uniform",
+      "method": "linear",
+      "queries": 21,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 19,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 19,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 19,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_1d_irregular",
+      "method": "linear",
+      "queries": 21,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 21,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 21,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 21,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_2d_uniform",
+      "method": "linear",
+      "queries": 25,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 23,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 23,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 23,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 6,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_2d_irregular",
+      "method": "linear",
+      "queries": 25,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 25,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 25,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 25,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 6,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_3d_uniform",
+      "method": "linear",
+      "queries": 43,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 41,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 41,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 41,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 24,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_3d_irregular",
+      "method": "linear",
+      "queries": 43,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 43,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 6.661338147750939e-16,
+          "finite_pairs": 43,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 43,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 24,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_4d_uniform",
+      "method": "linear",
+      "queries": 139,
+      "reference": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 137,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 137,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 137,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 120,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "linear_4d_irregular",
+      "method": "linear",
+      "queries": 139,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.6653345369377348e-16,
+        "finite_pairs": 139,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 139,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 139,
+          "matching_nan_masks": true
+        }
+      },
+      "nodes": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 120,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "bilinear_xy",
+      "method": "linear",
+      "queries": 2,
+      "reference": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_scattered_1d",
+      "method": "nadaraya_watson",
+      "queries": 14,
+      "reference": {
+        "passed": true,
+        "max_abs": 5.551115123125783e-17,
+        "finite_pairs": 14,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_scattered_2d",
+      "method": "nadaraya_watson",
+      "queries": 14,
+      "reference": {
+        "passed": true,
+        "max_abs": 3.885780586188048e-16,
+        "finite_pairs": 14,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 3.885780586188048e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 3.885780586188048e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_scattered_3d",
+      "method": "nadaraya_watson",
+      "queries": 14,
+      "reference": {
+        "passed": true,
+        "max_abs": 6.661338147750939e-16,
+        "finite_pairs": 14,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 6.661338147750939e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 6.661338147750939e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_scattered_4d",
+      "method": "nadaraya_watson",
+      "queries": 14,
+      "reference": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 14,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 2.220446049250313e-16,
+          "finite_pairs": 14,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_symmetric",
+      "method": "nadaraya_watson",
+      "queries": 2,
+      "reference": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_constant",
+      "method": "nadaraya_watson",
+      "queries": 2,
+      "reference": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_underflow",
+      "method": "nadaraya_watson",
+      "queries": 2,
+      "reference": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_single_observation",
+      "method": "nadaraya_watson",
+      "queries": 2,
+      "reference": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 2,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 0.0,
+          "finite_pairs": 2,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_grid_linear_2d_uniform",
+      "method": "nadaraya_watson",
+      "queries": 25,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 23,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 2.220446049250313e-16,
+          "finite_pairs": 23,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 23,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_grid_linear_2d_irregular",
+      "method": "nadaraya_watson",
+      "queries": 25,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 25,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 25,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 25,
+          "matching_nan_masks": true
+        }
+      }
+    },
+    {
+      "name": "nw_grid_linear_3d_uniform",
+      "method": "nadaraya_watson",
+      "queries": 43,
+      "reference": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 41,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "Octave": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 41,
+          "matching_nan_masks": true
+        },
+        "R": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 41,
+          "matching_nan_masks": true
+        }
+      }
+    }
+  ]
+}
