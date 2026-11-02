@@ -58,12 +58,13 @@ def verified_file(name, directory, download):
                       sha256=hashlib.sha256(data).hexdigest())
 
 
-def rectangle(pivot):
+def rectangle(pivot, bounds=None):
     """Choose a complete grid without imputing any missing option quotes.
 
     Search consecutive windows of 5-9 expiries. Keep up to 25 evenly spaced
     common strikes. Maximize retained node count; ties use the first window.
     Selection uses availability, not the magnitudes of held-out IV values.
+    Optional bounds require a rectangle spanning a frozen forecast domain.
     """
     best = None
     score = 0
@@ -71,6 +72,10 @@ def rectangle(pivot):
         for start in range(pivot.shape[1] - width + 1):
             block = pivot.iloc[:, start:start + width].dropna(axis=0)
             if len(block) < 5:
+                continue
+            if bounds is not None and not (
+                    block.index[0] <= bounds[0][0] and block.index[-1] >= bounds[0][1]
+                    and block.columns[0] <= bounds[1][0] and block.columns[-1] >= bounds[1][1]):
                 continue
             if len(block) > 25:
                 block = block.iloc[np.linspace(0, len(block) - 1, 25).astype(int)]
@@ -90,6 +95,24 @@ def split_grid(axes, values):
     held = (ii == i) | (jj == j)
     q = np.column_stack([axes[0][ii[held]], axes[1][jj[held]]])
     return training_axes, training, q, values[held]
+
+
+def clean_snapshot(frame, date, spot):
+    """Shared contemporaneous quote screen; no temporal imputation or fitting."""
+    frame = frame.copy()
+    frame['tau'] = (frame['expiration'] - date).dt.days / 365.0
+    frame['moneyness'] = frame['strike'] / spot
+    mid = (frame['bid'] + frame['ask']) / 2
+    numeric = frame[['strike', 'bid', 'ask', 'implied_volatility', 'tau']].to_numpy(float)
+    usable = (np.isfinite(numeric).all(axis=1)
+              & frame['type'].str.lower().isin(['call', 'c'])
+              & (frame['implied_volatility'] > 0) & (frame['bid'] > 0)
+              & (frame['ask'] >= frame['bid'])
+              & ((frame['ask'] - frame['bid']) <= .5 * mid)
+              & frame['tau'].between(21 / 365, 730 / 365)
+              & frame['moneyness'].between(.8, 1.2))
+    clean = frame.loc[usable]
+    return clean.loc[~clean.duplicated(['strike', 'tau'], keep=False)]
 
 
 def metrics(prediction, truth):
@@ -185,20 +208,7 @@ def main():
                 skipped.append(dict(date=label, reason='missing/nonpositive raw close'))
                 continue
             frame = df.loc[df['date'] == date].copy()
-            frame['tau'] = (frame['expiration'] - date).dt.days / 365.0
-            frame['moneyness'] = frame['strike'] / spot
-            mid = (frame['bid'] + frame['ask']) / 2
-            numeric = frame[['strike', 'bid', 'ask', 'implied_volatility', 'tau']].to_numpy(float)
-            usable = (np.isfinite(numeric).all(axis=1)
-                      & frame['type'].str.lower().isin(['call', 'c'])
-                      & (frame['implied_volatility'] > 0) & (frame['bid'] > 0)
-                      & (frame['ask'] >= frame['bid'])
-                      & ((frame['ask'] - frame['bid']) <= .5 * mid)
-                      & frame['tau'].between(21 / 365, 730 / 365)
-                      & frame['moneyness'].between(.8, 1.2))
-            clean = frame.loc[usable]
-            # Exclude ambiguous duplicate contracts instead of averaging labels.
-            clean = clean.loc[~clean.duplicated(['strike', 'tau'], keep=False)]
+            clean = clean_snapshot(frame, date, spot)
             grid = clean.pivot(index='strike', columns='tau', values='implied_volatility').sort_index().sort_index(axis=1)
             block = rectangle(grid)
             if block is None:
