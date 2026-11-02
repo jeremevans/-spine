@@ -7,12 +7,13 @@ This repository answers a specific porting question: can MATLAB
 `interpn(...,'spline')` be reproduced in open-source languages? For a complete
 rectilinear grid with at least four nodes on every axis, the underlying spline
 is mathematically unique. The included Python and R implementations target that
-same spline. Actual Python, Octave and R executions agree closely with an
-independent construction. **Actual MATLAB execution is still pending.**
+same spline. **Actual MATLAB, Python, Octave and R executions have passed the
+shared fixtures.** The first [GitHub workflow run](https://github.com/jeremevans/-spine/actions/runs/41390026607)
+passed both jobs, including MATLAB R2025b Update 7. See [the CI evidence](docs/CI_RESULTS.md).
 
 | Environment | Method used here | Delivered execution status |
 | --- | --- | --- |
-| MATLAB | `interpn(...,'spline',NaN)` | NOT RUN; native runner and GitHub Actions job included |
+| MATLAB | `interpn(...,'spline',NaN)` | Passed in actual MATLAB R2025b Update 7 |
 | Python / SciPy | `RegularGridInterpolator(method='cubic', solver=spsolve)` | Passed |
 | GNU Octave | `interpn(...,'spline',NaN)` | Passed |
 | R | Included tensor wrapper around `pracma::interp1(method='spline')` | Passed |
@@ -31,9 +32,9 @@ The one-dimensional cases use `interp1` in MATLAB/Octave. MATLAB's separate
 3. **Actual runtime evidence:** 42 cases and 8,687 query points across 1D–4D,
    including every data basis vector on one 5×5 grid. Ten unit tests also check
    the comparator and its rejection of corrupted evidence.
-4. **A way to close the MATLAB evidence gap:** the supplied public-repository
-   workflow runs a real MATLAB installation, exports its results and compares
-   them. Until that job or a local MATLAB run succeeds, MATLAB remains NOT RUN.
+4. **Actual MATLAB evidence:** the public-repository workflow ran MATLAB R2025b
+   Update 7, exported its results and passed all 42 cases. The native JSON and
+   comparison report are [preserved in the repository](evidence/github-actions-41390026607/).
 
 An exact-arithmetic theorem and a floating-point test report make different
 claims. This repository keeps both visible. Neither finite tests nor matching
@@ -56,8 +57,12 @@ coordinate-scaling stress case. Passing means agreement within this threshold,
 not bit-for-bit equality. Default iterative-solver diagnostics are reported
 separately and do not define pass/fail for the direct-solver implementation.
 
-Full details: [docs/RESULTS.md](docs/RESULTS.md), native JSON outputs in
-[evidence/](evidence/), and [primary sources](docs/SOURCES.md).
+These are the original local measurements. The later MATLAB GitHub run had a
+maximum error of **2.0539 × 10⁻¹⁵** against the independent reference and a maximum
+direct difference of **3.5527 × 10⁻¹⁵** from Python in that job.
+
+Full details: [original local results](docs/RESULTS.md), [GitHub results](docs/CI_RESULTS.md),
+native JSON outputs in [evidence/](evidence/), and [primary sources](docs/SOURCES.md).
 
 ## Quick start
 
@@ -218,7 +223,7 @@ enabled. See [the official action documentation](https://github.com/matlab-actio
 | `tests/` | Unit tests and deliberately incorrect controls |
 | `examples/` | Minimal exact examples and the IV surface visualization |
 | `docs/` | Proof, measured results and primary sources |
-| `evidence/` | Delivered native outputs and versions; MATLAB absent |
+| `evidence/` | Original local results and separately preserved actual MATLAB CI evidence |
 
 MIT-licensed project code and synthetic fixtures. Dependencies retain their own
 licenses. No third-party proprietary implementation or historical quote data

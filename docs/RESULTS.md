@@ -1,5 +1,9 @@
 # Measured spline results
 
+This is the original local run. A later GitHub run also passed in actual MATLAB
+R2025b Update 7; see [CI_RESULTS.md](CI_RESULTS.md). The historical measurements
+and statuses below remain unchanged.
+
 Run timestamp: `2026-11-01T15:11:47.903746+00:00`.
 Fixture SHA-256: `df542b66443931554da452e934c6c93907244bac04ec2f9b3243eb4af1e1659e`.
 

@@ -1,0 +1,1204 @@
+{
+  "timestamp_utc": "2026-11-02T04:44:59.950930+00:00",
+  "fixture_id": "df542b66443931554da452e934c6c93907244bac04ec2f9b3243eb4af1e1659e",
+  "python": "3.12.15",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "engines": {
+    "Octave": {
+      "status": "NOT RUN"
+    },
+    "R": {
+      "status": "NOT RUN"
+    },
+    "MATLAB": {
+      "schema_version": 1,
+      "engine": "MATLAB",
+      "engine_version": "25.2.0.3360999 (R2025b) Update 7",
+      "fixture_id": "df542b66443931554da452e934c6c93907244bac04ec2f9b3243eb4af1e1659e",
+      "method": "not-a-knot tensor spline",
+      "status": "RUN"
+    }
+  },
+  "absolute_tolerance": 2e-11,
+  "relative_tolerance": 2e-10,
+  "cases": 42,
+  "queries": 8687,
+  "exact_constraint_equalities": 200,
+  "exact_queries": 36,
+  "missing_required_engines": [],
+  "passed": true,
+  "results": [
+    {
+      "name": "1d_uniform_random",
+      "dimensions": 1,
+      "queries": 67,
+      "reference": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 2.220446049250313e-16,
+          "finite_pairs": 65,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 4,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "1d_irregular_random",
+      "dimensions": 1,
+      "queries": 67,
+      "reference": {
+        "passed": true,
+        "max_abs": 3.3306690738754696e-16,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 65,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 4,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "1d_tensor_polynomial",
+      "dimensions": 1,
+      "queries": 67,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.3877787807814457e-16,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 65,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 4,
+        "matching_nan_masks": true
+      },
+      "polynomial": {
+        "passed": true,
+        "max_abs": 5.551115123125783e-17,
+        "finite_pairs": 65,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "2d_uniform_random",
+      "dimensions": 2,
+      "queries": 83,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.440892098500626e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 81,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 20,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "2d_irregular_random",
+      "dimensions": 2,
+      "queries": 83,
+      "reference": {
+        "passed": true,
+        "max_abs": 8.638922910364499e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.27675647831893e-15,
+          "finite_pairs": 81,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 3.3306690738754696e-16,
+        "finite_pairs": 20,
+        "matching_nan_masks": true
+      },
+      "default_solver_diagnostic": {
+        "passed": true,
+        "max_abs": 2.546851618490109e-13,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "2d_tensor_polynomial",
+      "dimensions": 2,
+      "queries": 83,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.942890293094024e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.942890293094024e-16,
+          "finite_pairs": 81,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 5.551115123125783e-17,
+        "finite_pairs": 20,
+        "matching_nan_masks": true
+      },
+      "polynomial": {
+        "passed": true,
+        "max_abs": 1.3877787807814457e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "3d_uniform_random",
+      "dimensions": 3,
+      "queries": 143,
+      "reference": {
+        "passed": true,
+        "max_abs": 6.661338147750939e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.440892098500626e-16,
+          "finite_pairs": 141,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.7755575615628914e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 4.440892098500626e-16,
+        "finite_pairs": 80,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "3d_irregular_random",
+      "dimensions": 3,
+      "queries": 143,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.996003610813204e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-15,
+          "finite_pairs": 141,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 3.3306690738754696e-16,
+        "finite_pairs": 80,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "3d_tensor_polynomial",
+      "dimensions": 3,
+      "queries": 143,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.163336342344337e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.718447854656915e-16,
+          "finite_pairs": 141,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 80,
+        "matching_nan_masks": true
+      },
+      "polynomial": {
+        "passed": true,
+        "max_abs": 1.3877787807814457e-16,
+        "finite_pairs": 141,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "4d_uniform_random",
+      "dimensions": 4,
+      "queries": 463,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.6653345369377348e-15,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 6.938893903907228e-16,
+          "finite_pairs": 461,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 4.440892098500626e-16,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 1.6653345369377348e-15,
+        "finite_pairs": 400,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "4d_irregular_random",
+      "dimensions": 4,
+      "queries": 463,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.7763568394002505e-15,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 2.0539125955565396e-15,
+          "finite_pairs": 461,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 4.996003610813204e-16,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 1.4432899320127035e-15,
+        "finite_pairs": 400,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "4d_tensor_polynomial",
+      "dimensions": 4,
+      "queries": 463,
+      "reference": {
+        "passed": true,
+        "max_abs": 3.3306690738754696e-16,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 2.498001805406602e-16,
+          "finite_pairs": 461,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 1.3877787807814457e-16,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 2.7755575615628914e-16,
+        "finite_pairs": 400,
+        "matching_nan_masks": true
+      },
+      "polynomial": {
+        "passed": true,
+        "max_abs": 2.7755575615628914e-16,
+        "finite_pairs": 461,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_00",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1796119636642288e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 2.255140518769849e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_01",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 3.3306690738754696e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.163336342344337e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_02",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 5.551115123125783e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.440892098500626e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_03",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 6.245004513516506e-17,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_04",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.214306433183765e-17,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.3010426069826053e-17,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_05",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.996003610813204e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.996003610813204e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_06",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 5.763618748932942e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 7.216449660063518e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_07",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.3322676295501878e-15,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.440892098500626e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_08",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.996003610813204e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.718447854656915e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_09",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 7.632783294297951e-17,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.5102810375396984e-17,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_10",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.440892098500626e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_11",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 9.43689570931383e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 7.91033905045424e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_12",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 9.992007221626409e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.440892098500626e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_13",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 6.38378239159465e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 7.216449660063518e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_14",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_15",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.942890293094024e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 5.620504062164855e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_16",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 8.881784197001252e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 8.881784197001252e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_17",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 6.661338147750939e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.163336342344337e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_18",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 6.661338147750939e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 2.220446049250313e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_19",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.6653345369377348e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 2.7755575615628914e-17,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_20",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.942890293094024e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_21",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_22",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.6653345369377348e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_23",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.1102230246251565e-16,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "basis_5x5_24",
+      "dimensions": 2,
+      "queries": 31,
+      "reference": {
+        "passed": true,
+        "max_abs": 2.0816681711721685e-17,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 1.3010426069826053e-17,
+          "finite_pairs": 31,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 0.0,
+        "finite_pairs": 31,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "rational_2d",
+      "dimensions": 2,
+      "queries": 36,
+      "reference": {
+        "passed": true,
+        "max_abs": 1.3877787807814457e-16,
+        "finite_pairs": 36,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.608224830031759e-16,
+          "finite_pairs": 36,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 5.551115123125783e-17,
+        "finite_pairs": 36,
+        "matching_nan_masks": true
+      },
+      "rational": {
+        "passed": true,
+        "max_abs": 8.326672684688674e-17,
+        "finite_pairs": 36,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "volatility_surface",
+      "dimensions": 2,
+      "queries": 4941,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.718447854656915e-16,
+        "finite_pairs": 4941,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 4.163336342344337e-16,
+          "finite_pairs": 4941,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 4941,
+        "matching_nan_masks": true
+      },
+      "log_comparison": {
+        "passed": true,
+        "max_abs": 1.9984014443252818e-15,
+        "finite_pairs": 4941,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "positive_overshoot",
+      "dimensions": 2,
+      "queries": 501,
+      "reference": {
+        "passed": true,
+        "max_abs": 3.3306690738754696e-16,
+        "finite_pairs": 501,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 501,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 501,
+        "matching_nan_masks": true
+      },
+      "minimum_spline_value": -0.2035877546666666
+    },
+    {
+      "name": "coordinate_scaling",
+      "dimensions": 2,
+      "queries": 83,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.440892098500626e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 5.828670879282072e-16,
+          "finite_pairs": 81,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.498001805406602e-16,
+        "finite_pairs": 81,
+        "matching_nan_masks": true
+      }
+    },
+    {
+      "name": "constant_outside_fill",
+      "dimensions": 2,
+      "queries": 83,
+      "reference": {
+        "passed": true,
+        "max_abs": 4.440892098500626e-16,
+        "finite_pairs": 83,
+        "matching_nan_masks": true
+      },
+      "engines": {
+        "MATLAB": {
+          "passed": true,
+          "max_abs": 3.3306690738754696e-16,
+          "finite_pairs": 83,
+          "matching_nan_masks": true
+        }
+      },
+      "axis_order": {
+        "passed": true,
+        "max_abs": 2.220446049250313e-16,
+        "finite_pairs": 83,
+        "matching_nan_masks": true
+      },
+      "node_recovery": {
+        "passed": true,
+        "max_abs": 1.1102230246251565e-16,
+        "finite_pairs": 20,
+        "matching_nan_masks": true
+      }
+    }
+  ]
+}
