@@ -4,8 +4,10 @@
 on 1 November 2026 Pacific time (2 November UTC).
 
 Tested code commit: `0a88379747c233227a287504adb02494d926bd45`.
-Subsequent commits document the outcome and preserve evidence; they do not
-change the numerical implementations, fixtures or workflow.
+The evidence-preservation commits immediately following this run did not
+change its numerical implementations, fixtures or workflow. Later releases
+add [linear and Nadaraya–Watson methods](METHODS.md), which have a separate
+fixture and verifier. This report records the original spline run only.
 
 | Job | Execution | Result |
 | --- | --- | --- |

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spline-equivalence"
-version = "0.1.0"
-description = "Reproducible not-a-knot tensor spline equivalence evidence"
+version = "0.2.0"
+description = "Cross-language spline, linear and Gaussian Nadaraya-Watson surface methods"
 requires-python = ">=3.11"
 dependencies = ["numpy>=1.26,<3", "scipy>=1.13,<2"]
 license = {text = "MIT"}

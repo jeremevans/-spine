@@ -1,7 +1,30 @@
-# Spline equivalence: MATLAB, Python, Octave and R
+# Spline equivalence and surface methods: MATLAB, Python, Octave and R
 
 **The same not-a-knot tensor-product cubic spline, with a proof and reproducible
 numerical evidence.**
+
+The project also offers **linear interpolation** and **Gaussian Nadaraya–Watson
+smoothing** through a common method selector. See [the method guide](docs/METHODS.md)
+for formulas, bandwidth conventions, runnable examples and a visual comparison.
+The spline proof and original evidence below remain specifically about splines.
+
+```python
+from spline_equivalence import interpolate_surface
+
+fitted = interpolate_surface(axes, iv, queries, method="linear")
+smoothed = interpolate_surface(axes, iv, queries, method="nadaraya_watson",
+                               bandwidth=[0.08, 0.30])
+# Default method="spline" preserves the original not-a-knot implementation.
+```
+
+Use explicit bandwidths in the coordinates' own units. NW smooths rather than
+requiring an exact match at each observation. The additional-method verifier
+checks 20 cases and 615 queries against independent 50-digit Decimal references:
+
+```bash
+python scripts/verify_methods.py --require Octave R
+python examples/compare_methods.py --bandwidth 0.09 0.35
+```
 
 This repository answers a specific porting question: can MATLAB
 `interpn(...,'spline')` be reproduced in open-source languages? For a complete
@@ -215,9 +238,12 @@ enabled. See [the official action documentation](https://github.com/matlab-actio
 | Path | Purpose |
 | --- | --- |
 | `src/spline_equivalence/core.py` | Adapter using SciPy |
+| `src/spline_equivalence/methods.py` | Common selector, linear grid interpolation, and scattered/grid Gaussian NW |
+| `matlab/`, `r/interpolate_surface.R` | Matching selectable methods in MATLAB/Octave and R |
 | `src/spline_equivalence/reference.py` | Independent floating-point and exact-rational construction |
 | `r/interpn_spline.R` | Explicit N-D R wrapper |
 | `scripts/verify.py` | Execute engines, compare results and report |
+| `scripts/verify_methods.py`, `fixtures/methods.json` | Independent Decimal and cross-language checks for the new methods |
 | `scripts/run_engine.m`, `scripts/run_r.R` | Actual engine runners |
 | `fixtures/splines.json` | Shared deterministic inputs with content fingerprint |
 | `tests/` | Unit tests and deliberately incorrect controls |

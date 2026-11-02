@@ -9,15 +9,16 @@ from scipy.interpolate import RegularGridInterpolator
 from scipy.sparse.linalg import spsolve
 
 
-def validate(axes, values, queries):
+def validate(axes, values, queries, *, min_nodes=4):
+    axes = tuple(axes)
     if any(np.iscomplexobj(a) for a in axes) or np.iscomplexobj(values) or np.iscomplexobj(queries):
         raise ValueError("Only real data are supported")
     axes = tuple(np.asarray(a, dtype=float) for a in axes)
     if not axes:
         raise ValueError("At least one axis is required")
     for a in axes:
-        if a.ndim != 1 or len(a) < 4 or not np.isfinite(a).all() or not (np.diff(a) > 0).all():
-            raise ValueError("Each axis must have >=4 finite strictly increasing nodes")
+        if a.ndim != 1 or len(a) < min_nodes or not np.isfinite(a).all() or not (np.diff(a) > 0).all():
+            raise ValueError(f"Each axis must have >={min_nodes} finite strictly increasing nodes")
     values = np.asarray(values, dtype=float)
     queries = np.asarray(queries, dtype=float)
     if values.shape != tuple(map(len, axes)) or not np.isfinite(values).all():

@@ -27,7 +27,9 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           python scripts/verify.py --require Octave R
+          python scripts/verify_methods.py --require Octave R
           python examples/volatility_surface.py --results results
+          python examples/compare_methods.py --output results/method-comparison
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -53,9 +55,11 @@ jobs:
       - name: Export actual MATLAB results
         uses: matlab-actions/run-command@v3
         with:
-          command: addpath('scripts'); run_engine('fixtures/splines.json','results/matlab.json')
+          command: addpath('scripts'); run_engine('fixtures/splines.json','results/matlab.json'); run_methods('fixtures/methods.json','results/methods/matlab.json')
       - name: Compare MATLAB with Python and independent reference
-        run: python scripts/verify.py --python-only --matlab-results results/matlab.json --require MATLAB
+        run: |
+          python scripts/verify.py --python-only --matlab-results results/matlab.json --require MATLAB
+          python scripts/verify_methods.py --python-only --matlab-results results/methods/matlab.json --require MATLAB
       - uses: actions/upload-artifact@v7
         if: always()
         with:
