@@ -1,0 +1,46 @@
+test_ar1_known_rank_one_process (test_forecast.ForecastTests.test_ar1_known_rank_one_process) ... ok
+test_calendar_gap_target_is_skipped (test_forecast.ForecastTests.test_calendar_gap_target_is_skipped) ... ok
+test_common_quote_operator_is_bilinear_in_log_and_uses_F_order (test_forecast.ForecastTests.test_common_quote_operator_is_bilinear_in_log_and_uses_F_order) ... ok
+test_common_training_dates_and_invalid_origin (test_forecast.ForecastTests.test_common_training_dates_and_invalid_origin) ... ok
+test_failed_forecasts_are_not_silently_dropped (test_forecast.ForecastTests.test_failed_forecasts_are_not_silently_dropped) ... ok
+test_future_mutations_cannot_change_prior_forecast_or_fit (test_forecast.ForecastTests.test_future_mutations_cannot_change_prior_forecast_or_fit) ... ok
+test_grid_freezes_from_initial_training_only (test_forecast.ForecastTests.test_grid_freezes_from_initial_training_only) ... ok
+test_interpolate_then_log_is_not_log_then_interpolate (test_forecast.ForecastTests.test_interpolate_then_log_is_not_log_then_interpolate) ... ok
+test_missing_month_not_compressed_into_ar_pair (test_forecast.ForecastTests.test_missing_month_not_compressed_into_ar_pair) ... ok
+test_native_import_rejects_false_evidence (test_forecast.ForecastTests.test_native_import_rejects_false_evidence) ... ok
+test_nonpositive_policies_do_not_fill_missing_support (test_forecast.ForecastTests.test_nonpositive_policies_do_not_fill_missing_support) ... ok
+test_pca_mean_scores_and_orthogonality (test_forecast.ForecastTests.test_pca_mean_scores_and_orthogonality) ... ok
+test_sensitivities_compare_matching_forecast_dates (test_forecast.ForecastTests.test_sensitivities_compare_matching_forecast_dates) ... ok
+test_subspace_invariant_to_sign_permutation_and_rotation (test_forecast.ForecastTests.test_subspace_invariant_to_sign_permutation_and_rotation) ... ok
+test_window_and_training_end (test_forecast.ForecastTests.test_window_and_training_end) ... ok
+test_cached_file_integrity_is_checked (test_historical_qqq.HistoricalQuoteTests.test_cached_file_integrity_is_checked) ... ok
+test_holdout_excludes_entire_strike_and_expiry (test_historical_qqq.HistoricalQuoteTests.test_holdout_excludes_entire_strike_and_expiry) ... ok
+test_linear_recovers_bilinear_holdouts (test_historical_qqq.HistoricalQuoteTests.test_linear_recovers_bilinear_holdouts) ... ok
+test_nonpositive_predictions_are_counted_not_logged (test_historical_qqq.HistoricalQuoteTests.test_nonpositive_predictions_are_counted_not_logged) ... ok
+test_bad_inputs (test_methods.MethodTests.test_bad_inputs) ... ok
+test_bilinear_is_not_triangulated (test_methods.MethodTests.test_bilinear_is_not_triangulated) ... ok
+test_grid_nw_order_and_boundary_policy (test_methods.MethodTests.test_grid_nw_order_and_boundary_policy) ... ok
+test_linear_multiaffine_and_axis_order (test_methods.MethodTests.test_linear_multiaffine_and_axis_order) ... ok
+test_linear_nodes_fill_and_extrapolation (test_methods.MethodTests.test_linear_nodes_fill_and_extrapolation) ... ok
+test_method_import_rejects_wrong_fixtures_and_missing_cases (test_methods.MethodTests.test_method_import_rejects_wrong_fixtures_and_missing_cases) ... ok
+test_nw_closed_form_and_smoothing_at_nodes (test_methods.MethodTests.test_nw_closed_form_and_smoothing_at_nodes) ... ok
+test_nw_constant_single_sample_empty_and_duplicates (test_methods.MethodTests.test_nw_constant_single_sample_empty_and_duplicates) ... ok
+test_nw_underflow_and_large_values (test_methods.MethodTests.test_nw_underflow_and_large_values) ... ok
+test_nw_units_chunking_and_permutation (test_methods.MethodTests.test_nw_units_chunking_and_permutation) ... ok
+test_positive_convex_results_and_log_order (test_methods.MethodTests.test_positive_convex_results_and_log_order) ... ok
+test_selector_preserves_spline_and_rejects_unused_parameters (test_methods.MethodTests.test_selector_preserves_spline_and_rejects_unused_parameters) ... ok
+test_basis_linearity (test_splines.SplineTests.test_basis_linearity) ... ok
+test_comparator_rejects_corruption (test_splines.SplineTests.test_comparator_rejects_corruption) ... ok
+test_constant_partition_of_unity (test_splines.SplineTests.test_constant_partition_of_unity) ... ok
+test_engine_import_rejects_bad_evidence (test_splines.SplineTests.test_engine_import_rejects_bad_evidence) ... ok
+test_exact_constraints_and_answers (test_splines.SplineTests.test_exact_constraints_and_answers) ... ok
+test_independent_construction (test_splines.SplineTests.test_independent_construction) ... ok
+test_natural_spline_is_not_equivalent (test_splines.SplineTests.test_natural_spline_is_not_equivalent) ... ok
+test_outside_policy (test_splines.SplineTests.test_outside_policy) ... ok
+test_rejects_unsupported_inputs (test_splines.SplineTests.test_rejects_unsupported_inputs) ... ok
+test_tensor_cubic_reproduction (test_splines.SplineTests.test_tensor_cubic_reproduction) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 0.103s
+
+OK

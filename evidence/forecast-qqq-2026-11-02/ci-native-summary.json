@@ -1,0 +1,65 @@
+{
+  "run_url": "https://github.com/jeremevans/-spine/actions/runs/41528114577",
+  "code_commit": "813b86dbcdb9330a7101f0fca736b7738d131568",
+  "job_id": 125560997021,
+  "unit_tests": 41,
+  "conclusion": "success",
+  "forecast": {
+    "fixture_id": "3a8e746abffb5761f9c8e6cc6350d167c8f2dc10a257184014fcd6de19ae1e26",
+    "atol": 2e-9,
+    "rtol": 2e-8,
+    "engines": {
+      "Octave": {
+        "status": "RUN",
+        "version": "8.4.0",
+        "cases": 111,
+        "max_abs": {
+          "forecast_log": 4.6629367034256575e-15,
+          "projector": 4.440892098500626e-15,
+          "phi": 1.715294573045867e-14,
+          "explained_ratio": 1.1102230246251565e-15
+        },
+        "passed": true
+      },
+      "R": {
+        "status": "RUN",
+        "version": "R version 4.3.3 (2024-02-29)",
+        "cases": 111,
+        "max_abs": {
+          "forecast_log": 4.6629367034256575e-15,
+          "projector": 1.3877787807814457e-15,
+          "phi": 2.9976021664879227e-15,
+          "explained_ratio": 4.440892098500626e-16
+        },
+        "passed": true
+      },
+      "MATLAB": {
+        "status": "NOT RUN",
+        "passed": false
+      }
+    },
+    "passed": true
+  },
+  "coverage": {
+    "scheduled_origins": 46,
+    "eligible_origins": 37,
+    "full_supported_surfaces": 61
+  },
+  "alignment_engines": {
+    "Octave": {
+      "status": "RUN",
+      "version": "8.4.0",
+      "passed": true,
+      "cases": 210,
+      "max_abs": 2.7755575615628914e-15
+    },
+    "R": {
+      "status": "RUN",
+      "version": "R version 4.3.3 (2024-02-29)",
+      "passed": true,
+      "cases": 210,
+      "max_abs": 1.7486012637846216e-15
+    }
+  },
+  "passed": true
+}
