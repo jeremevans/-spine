@@ -12,6 +12,7 @@ license = {text = "MIT"}
 
 [project.optional-dependencies]
 plot = ["matplotlib>=3.8,<4"]
+historical = ["pandas>=2.2,<3", "pyarrow>=17,<24"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

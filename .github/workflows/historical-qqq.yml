@@ -1,0 +1,41 @@
+name: Historical QQQ surface tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/historical_qqq.py'
+      - 'tests/test_historical_qqq.py'
+      - '.github/workflows/historical-qqq.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quote-reconstruction:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install data and numerical runtimes
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends octave r-base-core r-cran-pracma r-cran-jsonlite
+          python -m pip install -r requirements-tested.txt 'pandas>=2.2,<3' 'pyarrow>=17,<24'
+      - name: Check held-out-grid construction
+        run: python -m unittest discover -s tests -v
+      - name: Audit source files and test historical QQQ quotes
+        run: python scripts/historical_qqq.py --download --require Octave R
+      - name: Save aggregate evidence (no source quotes)
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: historical-qqq-evidence
+          path: |
+            results/historical-qqq/summary.json
+            results/historical-qqq/*.log
+          if-no-files-found: warn

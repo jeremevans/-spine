@@ -8,6 +8,12 @@ smoothing** through a common method selector. See [the method guide](docs/METHOD
 for formulas, bandwidth conventions, runnable examples and a visual comparison.
 The spline proof and original evidence below remain specifically about splines.
 
+For market-data tests, see the [historical Nasdaq data guide](docs/HISTORICAL_NASDAQ.md).
+It identifies public **QQQ 2011-2016** option files and provides a reproducible
+held-out-quote benchmark for all three methods. QQQ is an ETF proxy; no complete
+public NDX 2000-2016 archive has been verified. This benchmark measures surface
+reconstruction, not PCA/AR(1) forecasting.
+
 ```python
 from spline_equivalence import interpolate_surface
 
