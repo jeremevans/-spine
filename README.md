@@ -18,6 +18,15 @@ and 1,903 held-out quotes: Python, Octave and R agreed within `2.4e-15`. Linear
 had the smallest quote-reconstruction RMSE in this experiment; spline produced
 one nonpositive IV prediction, which matters before taking logarithms.
 
+The [executed PCA/AR(1) forecast benchmark](docs/FORECAST_RESULTS.md) now extends
+that reconstruction study: frozen aligned grids, interpolate-IV-then-log,
+training-only PCA/AR fits, matched forecast dates and persistence baselines.
+It evaluates **37 eligible monthly forecasts and 1,623 future quotes** from the
+70-month sample. Python, Octave and R passed the historical numerical-stage checks;
+historical MATLAB forecasting remains **NOT RUN**. The
+[protocol](docs/FORECAST_PROTOCOL.md) explains missing coverage, factor stability,
+and why a denser grid exposes negative spline values that a coarse grid misses.
+
 ```python
 from spline_equivalence import interpolate_surface
 

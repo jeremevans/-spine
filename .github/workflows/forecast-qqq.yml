@@ -1,0 +1,61 @@
+name: Historical QQQ PCA AR1 forecast
+
+on:
+  pull_request:
+    paths:
+      - 'src/spline_equivalence/**'
+      - 'scripts/*forecast*'
+      - 'scripts/historical_qqq.py'
+      - 'tests/test_forecast.py'
+      - '.github/workflows/forecast-qqq.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/spline_equivalence/**'
+      - 'scripts/*forecast*'
+      - 'scripts/historical_qqq.py'
+      - 'tests/test_forecast.py'
+      - '.github/workflows/forecast-qqq.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  forecast:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install open-source engines
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends octave r-base-core r-cran-pracma r-cran-jsonlite
+          python -m pip install -r requirements-tested.txt 'pandas==2.2.3' 'pyarrow==23.0.1'
+      - name: Unit and leakage checks
+        run: python -m unittest discover -s tests -v
+      - name: Historical reconstruction regression
+        run: python scripts/historical_qqq.py --download --require Octave R
+      - name: Walk-forward forecast and native numerical comparisons
+        run: python scripts/forecast_qqq.py --require Octave R
+      - name: Summarize native execution
+        run: |
+          cat results/forecast-qqq/forecast-engine-summary.json
+          python -c "import json; s=json.load(open('results/forecast-qqq/summary.json')); print(json.dumps({k:s[k] for k in ['coverage','alignment_engines','passed']},indent=2))"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: forecast-qqq-evidence
+          path: |
+            results/forecast-qqq/summary.json
+            results/forecast-qqq/*summary.json
+            results/forecast-qqq/*.csv
+            results/forecast-qqq/*.log
+            results/historical-qqq/summary.json
+          if-no-files-found: error
