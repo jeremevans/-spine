@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT/'src'), str(ROOT/'scripts')]
 from spline_equivalence.forecast import (fit_pca_ar1, log_surfaces, subspace_distance,
                                          walk_forward)
-from forecast_qqq import freeze_axes, evaluate_at_quotes, error_stats, quote_mask
+from forecast_qqq import freeze_axes, evaluate_at_quotes, error_stats, quote_mask, matched_comparison
 from verify_forecast import compare_native
 
 
@@ -139,6 +139,16 @@ class ForecastTests(unittest.TestCase):
             if mutation=='duplicate':bad['cases']*=2
             if mutation=='shape':bad['cases'][0]['projector']=[1.,2.]
             with self.assertRaises(ValueError):compare_native(bad,f,'R')
+
+    def test_sensitivities_compare_matching_forecast_dates(self):
+        def row(date, sse):
+            return dict(date=date,method='spline',model='pca_ar1',target_kind='observed_quotes',
+                        n=2,sse=sse,sae=1.,log_sse=.1)
+        a=dict(monthly=[row('2014-03-03',1.),row('2014-04-01',100.)])
+        b=dict(monthly=[row('2014-03-03',2.)])
+        result=matched_comparison(a,b)
+        self.assertEqual(result['dates'],['2014-03-03'])
+        self.assertAlmostEqual(result['sensitivity'][0]['rmse_iv_pp'],100*np.sqrt(.5))
 
 
 if __name__=='__main__':

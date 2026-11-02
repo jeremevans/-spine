@@ -233,6 +233,7 @@ def benchmark(snapshots, axes, iv, *, initial_train=24, k=3, window=None,
                 training_first=snapshots[indices[0]]['date'], training_last=snapshots[indices[-1]]['date'],
                 training_rows=len(indices), ar_pairs=fit['ar_pairs'],
                 explained_variance=float(fit['explained_ratio'].sum()),
+                explained_ratio=fit['explained_ratio'].tolist(),
                 phi=fit['phi'].tolist(), intercept=fit['intercept'].tolist(),
                 unstable_factors=int((abs(fit['phi']) >= 1).sum()),
                 eigengap_at_k=float((eigen[k-1]-eigen[k])/eigen[0]) if k < len(eigen) else None))
@@ -251,7 +252,9 @@ def benchmark(snapshots, axes, iv, *, initial_train=24, k=3, window=None,
                         projector=(fit['loadings'] @ fit['loadings'].T).tolist(),
                         phi=fit['phi'].tolist(), explained_ratio=fit['explained_ratio'].tolist())))
         for a, b in itertools.combinations(METHODS, 2):
+            difference = np.exp(fold['fits'][a]['forecast_log'])-np.exp(fold['fits'][b]['forecast_log'])
             stability.append(dict(date=date, comparison='between_methods', method=f'{a}/{b}',
+                forecast_grid_disagreement_rmse_iv_pp=float(100*np.sqrt(np.mean(difference**2))),
                 **subspace_distance(fold['fits'][a]['loadings'], fold['fits'][b]['loadings'])))
     return dict(aggregate=aggregate(rows), monthly=rows, factors=factors, stability=stability,
                 skipped=skipped, repairs=repairs, forecasts=primary_predictions,
@@ -284,8 +287,30 @@ def original_holdout_positivity(snapshots):
                 events=events, policies=policies)
 
 
+def matched_comparison(run, reference):
+    """Keep parameter sensitivity comparisons on the SAME observed quote dates."""
+    def dates(r):
+        return {x['date'] for x in r['monthly'] if x['target_kind']=='observed_quotes' and x['n']}
+    common = dates(run) & dates(reference)
+    def select(r):
+        return aggregate([x for x in r['monthly'] if x['date'] in common and x['target_kind']=='observed_quotes'])
+    return dict(dates=sorted(common), sensitivity=select(run), reference=select(reference))
+
+
+def sensitivity_record(run, reference, **extra):
+    factors = {}
+    for method in METHODS:
+        f = [x for x in run['factors'] if x['method']==method]
+        factors[method] = dict(unstable_ar_fits=sum(x['unstable_factors'] for x in f),
+            explained_variance_range=[min(x['explained_variance'] for x in f),
+                                      max(x['explained_variance'] for x in f)]) if f else {}
+    return dict(aggregate=run['aggregate'], repairs=run['repairs'], skipped=run['skipped'],
+                matched_to_primary=matched_comparison(run,reference), factor_summary=factors, **extra)
+
+
 def main():
     import pandas as pd
+    import pyarrow
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data-dir', type=Path, default=ROOT / 'data/qqq')
     parser.add_argument('--output', type=Path, default=ROOT / 'results/forecast-qqq')
@@ -324,22 +349,33 @@ def main():
                          ('floor_0.0001', dict(policy='floor', floor=1e-4)),
                          ('floor_0.01', dict(policy='floor', floor=.01))]:
         run = benchmark(snapshots, axes, iv, **params)
-        sensitivity[name] = dict(parameters=params, aggregate=run['aggregate'], repairs=run['repairs'],
-                                  skipped=run['skipped'])
+        sensitivity[name] = sensitivity_record(run,result,parameters=params)
     for scale in [.5, 2.]:
         alt, _, _, _ = align_snapshots(snapshots, axes, bandwidth_scale=scale)
         run = benchmark(snapshots, axes, alt)
-        sensitivity[f'nw_bandwidth_{scale}'] = dict(aggregate=run['aggregate'], skipped=run['skipped'])
+        sensitivity[f'nw_bandwidth_{scale}'] = sensitivity_record(run,result)
     for shape in [(5, 4), (17, 13)]:
         alt_axes = [np.linspace(a[0], a[-1], n) for a, n in zip(axes, shape)]
         alt, alt_audit, _, _ = align_snapshots(snapshots, alt_axes)
         run = benchmark(snapshots, alt_axes, alt)
-        sensitivity[f'grid_{shape[0]}x{shape[1]}'] = dict(aggregate=run['aggregate'],
-            skipped=run['skipped'], alignment_audit=alt_audit)
+        sensitivity[f'grid_{shape[0]}x{shape[1]}'] = sensitivity_record(run,result,alignment_audit=alt_audit)
+        if shape == (17,13):
+            dense_strict = run
+            for name, params in [('linear_fallback',dict(policy='linear_fallback')),
+                                 ('floor_0.0001',dict(policy='floor',floor=1e-4)),
+                                 ('floor_0.01',dict(policy='floor',floor=.01))]:
+                repaired = benchmark(snapshots,alt_axes,alt,**params)
+                sensitivity[f'dense_{name}'] = sensitivity_record(repaired,result,parameters=params,
+                    matched_to_dense_strict=matched_comparison(repaired,dense_strict))
     summary = dict(scope='One-month QQQ ETF IV surface forecasts; not NDX, option returns or trading P&L',
         source_repository=SOURCE, source_revision=REVISION, source_files=sources, annual=annual,
         versions=dict(python=platform.python_version(), numpy=np.__version__, scipy=scipy.__version__,
-                      pandas=pd.__version__),
+                      pandas=pd.__version__, pyarrow=pyarrow.__version__),
+        code_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in [
+            'scripts/forecast_qqq.py','scripts/historical_qqq.py','scripts/make_fixtures.py',
+            'scripts/verify_forecast.py','scripts/run_forecast.m','scripts/run_forecast.R',
+            'src/spline_equivalence/forecast.py','src/spline_equivalence/methods.py',
+            'src/spline_equivalence/core.py']},
         protocol=dict(initial_train=24, components=3, horizon_months=1, window='expanding',
             positivity='strict; shared training-row rejection; no temporal compression',
             alignment='intersection of initial 24 original rectangles, frozen; same-date rectangles constrained to span it',

@@ -4,6 +4,7 @@ No interpolation or log-order changes are hidden in this module. Inputs are
 already aligned log-IV. Forecasts are one calendar observation step ahead.
 """
 import numpy as np
+from scipy.linalg import subspace_angles
 
 
 def log_surfaces(iv, policy='strict', *, fallback=None, floor=1e-4):
@@ -86,8 +87,10 @@ def subspace_distance(a, b):
     a, b = np.asarray(a), np.asarray(b)
     if a.shape != b.shape:
         raise ValueError('Subspaces must have identical dimensions')
-    cosines = np.clip(np.linalg.svd(a.T @ b, compute_uv=False), 0, 1)
-    return dict(max_angle_degrees=float(np.degrees(np.arccos(cosines.min()))),
+    pc1_cosine = float(np.clip(abs(a[:,0] @ b[:,0]), 0, 1))
+    # Stable near zero; arccos(sigma_min) amplifies roundoff for identical spaces.
+    return dict(max_angle_degrees=float(np.degrees(np.max(subspace_angles(a, b)))),
+                pc1_abs_cosine=pc1_cosine, pc1_angle_degrees=float(np.degrees(np.arccos(pc1_cosine))),
                 projector_distance=float(np.linalg.norm(a @ a.T - b @ b.T, 'fro')
                                          / np.sqrt(2 * a.shape[1])))
 
